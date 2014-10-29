@@ -1,0 +1,58 @@
+// CDN assets
+@import "//fonts.googleapis.com/css?family=Raleway:100,300,500,600,700";
+@import "//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css";
+
+// ===================================
+// Foundation
+@import "settings";
+
+$row-width: rem-calc(1200);
+$total-columns: 12;
+$column-gutter: rem-calc(50);
+
+$font-family-sans-serif: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$primary-color   : $bluejeans-dark;
+$secondary-color : #e7e7e7;
+$alert-color     : $grapefruit-dark;
+$success-color   : $mint-light;
+$warning-color   : $sunflower-dark;
+$info-color      : $aqua-dark;
+
+$body-font-color: $darkgray-light;
+
+// $h1-font-size: rem-calc(90);
+// $h2-font-size: rem-calc(65);
+// $h3-font-size: rem-calc(50);
+// $h4-font-size: rem-calc(30);
+// $h5-font-size: rem-calc(18);
+// $h6-font-size: 1rem;
+// $header-line-height: 1;
+
+// $paragraph-font-size: 1.2rem;
+// $paragraph-line-height: 1.2;
+// $paragraph-margin-bottom: 0;
+
+// ===================================
+// Animate.scss
+// $enable-all-modules: true;
+
+// ===================================
+// Misc
+
+// vars
+$imgurl: "/assets/img";
+
+// mixins
+@mixin center-v($enable: true) {
+  @if $enable {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @else {
+    position: static;
+    top: 0;
+    transform: translateY(0);
+  }
+}
