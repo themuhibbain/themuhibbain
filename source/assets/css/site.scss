@@ -301,7 +301,7 @@ hr {
       a {
         color: $footer-link-color;
         &:hover {
-          color: tint($footer-link-color, 50);
+          color: tint($footer-link-color, 40);
         }
       }
     }
