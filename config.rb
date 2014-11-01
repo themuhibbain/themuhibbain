@@ -63,7 +63,7 @@ configure :build do
   # activate :minify_html
 
   # Optimize images
-  activate :imageoptim
+  # activate :imageoptim
 
   # Activate gzip
   activate :gzip

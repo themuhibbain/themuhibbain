@@ -1,21 +1,19 @@
-@import "//fonts.googleapis.com/css?family=Nunito:400,700,300";
-@import "//fonts.googleapis.com/css?family=Varela+Round";
-@import "//fonts.googleapis.com/css?family=Raleway:100,300,500,700";
+@import "//fonts.googleapis.com/css?family=Oswald:300,400,700|Raleway:100,300,500,700|Roboto+Condensed:400,300,700";
 
 // Typography
-$sans-serif: 'Raleway', $helvetica;
+$sans-serif: 'Oswald', $helvetica;
 $serif: $georgia;
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: 'Raleway', $sans-serif;
 
 // Font Sizes
 $base-font-size: 16px;
-$h1-font-size: $base-font-size * 2.25;
-$h2-font-size: $base-font-size * 2;
-$h3-font-size: $base-font-size * 1.75;
-$h4-font-size: $base-font-size * 1.5;
-$h5-font-size: $base-font-size * 1.25;
-$h6-font-size: $base-font-size;
+$h1-font-size: 2.25em;
+$h2-font-size: 2em;
+$h3-font-size: 1.75em;
+$h4-font-size: 1.5em;
+$h5-font-size: 1.25em;
+$h6-font-size: 1em;
 
 // Line height
 $base-line-height: 1.5;
@@ -39,7 +37,7 @@ $light-green: #E6EFC2;
 $base-background-color: white;
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $lcm-gray;
 $base-accent-color: $blue;
 
 // Link Colors

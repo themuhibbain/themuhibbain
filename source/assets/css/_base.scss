@@ -1,6 +1,9 @@
 // CDN assets
 @import "//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css";
 
+// Color names
+@import "colors";
+
 // Normalize
 @import "normalize";
 
@@ -10,7 +13,7 @@
 // Bitters Variables
 @import "bitters-variables";
 
-// Neat Settings -- uncomment if using Neat -- must be imported before Neat
+// Neat Settings
 @import "neat-settings";
 
 // Extends
@@ -22,16 +25,13 @@
 
 // Typography and Elements
 @import "bitters/app/assets/stylesheets/typography";
-@import "bitters/app/assets/stylesheets/forms";
-@import "bitters/app/assets/stylesheets/tables";
+// @import "bitters/app/assets/stylesheets/forms";
+// @import "bitters/app/assets/stylesheets/tables";
 @import "bitters/app/assets/stylesheets/lists";
 @import "bitters/app/assets/stylesheets/buttons";
 
 // Neat
-@import "neat/app/assets/stylesheets/neat";
-
-// Color names
-@import "colors";
+@import "neat";
 
 // vars
 $imgurl: "/assets/img";
