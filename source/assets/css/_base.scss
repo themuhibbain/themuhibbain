@@ -10,11 +10,14 @@
 // Bourbon stuffs
 @import "bourbon";
 
-// Bitters Variables
-@import "bitters-variables";
-
 // Neat Settings
 @import "neat-settings";
+
+// Neat
+@import "neat";
+
+// Bitters Variables
+@import "bitters-variables";
 
 // Extends
 @import "bitters/app/assets/stylesheets/extends/button";
@@ -30,8 +33,8 @@
 @import "bitters/app/assets/stylesheets/lists";
 @import "bitters/app/assets/stylesheets/buttons";
 
-// Neat
-@import "neat";
+// Refills
+@import "refills/source/stylesheets/refills/textures";
 
 // vars
 $imgurl: "/assets/img";

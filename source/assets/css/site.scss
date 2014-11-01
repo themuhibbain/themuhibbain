@@ -18,6 +18,7 @@ $bg-gray: tint($lcm-gray, 20);
 
 body {
   background: $bg-gray;
+  @include texture(180deg, lighten($bg-gray, 0), darken($bg-gray, 20), 67, 1);
   font-weight: 300;
   // height: 100%;
   margin: 0;
@@ -47,6 +48,7 @@ hr {
 
   min-height: 100%;
   background: $lcm-red;
+  // @include texture(180deg, lighten($lcm-red, 0), darken($lcm-red, 30), 67, 1);
   box-shadow: 10px 0 20px rgba(#000, .3);
 
   .hero {
@@ -257,7 +259,7 @@ hr {
 
     img {
       vertical-align: middle;
-      opacity: .8;
+      opacity: .7;
       margin: 0 .4em;
 
       &:first-child, &:last-child {
@@ -294,6 +296,13 @@ hr {
       p.manager {
         font-size: 1em;
         line-height: 1.1;
+      }
+
+      a {
+        color: $footer-link-color;
+        &:hover {
+          color: tint($footer-link-color, 50);
+        }
       }
     }
 
