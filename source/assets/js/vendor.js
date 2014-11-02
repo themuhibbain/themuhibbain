@@ -1,5 +1,6 @@
 //= require "jquery"
 //= require "fastclick"
+// require "instagram-lite"
 // require "imagesloaded/imagesloaded.pkgd.js"
 // require "masonry/dist/masonry.pkgd.js"
 // require "packery/dist/packery.pkgd.js"
