@@ -1,10 +1,10 @@
-@import "//fonts.googleapis.com/css?family=Oswald:300,400,700|Raleway:100,300,500,700";
+@import "//fonts.googleapis.com/css?family=Oswald:300,400,700|Raleway:300";
 
 // Typography
 $sans-serif: 'Oswald', $helvetica;
 $serif: $georgia;
 $base-font-family: $sans-serif;
-$header-font-family: 'Raleway', $sans-serif;
+$header-font-family: $sans-serif;
 
 // Font Sizes
 $base-font-size: 16px;
