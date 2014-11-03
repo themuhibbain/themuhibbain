@@ -16,7 +16,6 @@ $small-screen-only: new-breakpoint(max-width $medium-screen 4);
 
 $tablet: new-breakpoint(max-width 768px 8);
 $mobile: new-breakpoint(max-width 480px 4);
-$short: new-breakpoint(max-height 800px);
 
 // shortcuts
 $medium-up: $medium-screen-up;

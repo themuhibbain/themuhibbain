@@ -1,3 +1,9 @@
+String::trunc = (n, useWordBoundary) ->
+  toLong = @length > n
+  s_ = (if toLong then @substr(0, n - 1) else this)
+  s_ = (if useWordBoundary and toLong then s_.substr(0, s_.lastIndexOf(" ")) else s_)
+  (if toLong then s_ + "&hellip;" else s_)
+
 $ ->
   # FastClick
   FastClick.attach document.body
@@ -38,10 +44,14 @@ $ ->
     success: (response) ->
       html = []
       $.each response.data, (i, data) ->
+        caption = $.trim(data.caption.text).replace(/\s+/g, " ").match(/THE MUHIBBAIN - Update\.\s+(.*)\s+THE MUHIBBAIN - Update\./)[1]
+        caption = $.trim(caption).trunc(200, true)
+
         html.push """
         <figure>
           <img src="#{data.images.low_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
           <figcaption>
+            <div class="caption"><div class="caption-inner">#{caption}</div></div>
             <div class="likes">#{data.likes.count} likes</div>
             <a href="#{data.link}" target="_blank">View on Instagram</a>
           </figcaption>
