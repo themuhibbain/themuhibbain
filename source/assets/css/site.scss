@@ -10,18 +10,16 @@
 // Main stylesheet
 
 // base styles
+$bg-gray: tint($lcm-gray, 20);
 
 html, body {
   width: 100%;
   height: 100%;
 }
 
-html {
+body {
   overflow-x: hidden;
-
 }
-
-$bg-gray: tint($lcm-gray, 20);
 
 body {
   background: $bg-gray;
@@ -327,7 +325,7 @@ hr {
     img, svg {
       display: block;
       margin: auto;
-      width: 80%;
+      width: 90%;
 
       @include media($medium-screen) {
         width: 60%;
