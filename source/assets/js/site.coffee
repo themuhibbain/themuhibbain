@@ -40,8 +40,9 @@ $ ->
       $.each response.data, (i, data) ->
         html.push """
         <figure>
-          <img src="#{data.images.low_resolution.url}" alt="" data-filter='#{data.filter}'>
+          <img src="#{data.images.low_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
           <figcaption>
+            <div class="likes">#{data.likes.count} likes</div>
             <a href="#{data.link}" target="_blank">View on Instagram</a>
           </figcaption>
         </figure>
