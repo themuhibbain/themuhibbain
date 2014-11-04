@@ -58,7 +58,7 @@ hr {
 
 .masthead {
   min-height: 100%;
-  box-shadow: 10px 0 20px rgba(#000, .3);
+  // box-shadow: 10px 0 20px rgba(#000, .3);
 
   .hero {
     background: $lcm-red;
@@ -217,7 +217,7 @@ hr {
           margin: 0 0 20px -60px;
           top: 110%;
           text-align: center;
-          box-shadow: -3px -3px 15px rgba(#000, 0.1);
+          // box-shadow: -3px -3px 15px rgba(#000, 0.1);
           background: $lcm-darkblue;
           opacity: 0;
           cursor: default;
@@ -372,7 +372,7 @@ hr {
         font-size: .8em;
         line-height: 1;
         color: #fff;
-        box-shadow: 1px 1px 3px rgba(#000, .1);
+        // box-shadow: 1px 1px 3px rgba(#000, .1);
 
         transform: translateY(-130%);
         transition: transform .3s;
@@ -385,11 +385,12 @@ hr {
       figcaption .caption {
         position: absolute;
         z-index: 5;
-        background: rgba(#fff, .8);
+        background: rgba($lcm-gray-dark, .8);
         width: 100%;
         bottom: 0;
         overflow: hidden;
         text-align: left;
+        color: #fff;
 
         transform-origin: bottom;
         transform: rotateX(90deg);
@@ -470,8 +471,8 @@ hr {
   }
 
   .themuhibbain {
-    background: #fff url(/assets/img/themuhibbain-640.jpg) center bottom no-repeat;
-    background-size: cover;
+    background: #fff url(/assets/img/themuhibbain-640.jpg) center center no-repeat;
+    background-size: contain;
     height: 400px;
     transition: height .8s;
 
@@ -479,6 +480,13 @@ hr {
       background-image: url(/assets/img/themuhibbain-860.jpg);
       height: 600px;
     }
+  }
+
+  .promo {
+    background: #fff url(/assets/img/promo-5hari.jpg) center center no-repeat;
+    background-size: contain;
+    height: 400px;
+    margin-top: 3em;
   }
 }
 
