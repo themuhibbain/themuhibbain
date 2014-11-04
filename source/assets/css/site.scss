@@ -343,7 +343,7 @@ hr {
 
       &:hover .thumb {
         opacity: 0.8;
-        transform: scale(1.02);
+        transform: scale(1);
       }
 
       figcaption::before,
@@ -465,12 +465,8 @@ hr {
       margin: auto;
       width: 90%;
 
-      @include media($medium) {
-        width: 60%;
-      }
-
-      @include media($large) {
-        width: 60%;
+      @include media($medium-up) {
+        width: 70%;
       }
     }
   }

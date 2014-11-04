@@ -1,9 +1,11 @@
+# String extension: truncate
 String::trunc = (n, useWordBoundary) ->
   toLong = @length > n
   s_ = (if toLong then @substr(0, n - 1) else this)
   s_ = (if useWordBoundary and toLong then s_.substr(0, s_.lastIndexOf(" ")) else s_)
   (if toLong then s_ + "&hellip;" else s_)
 
+# function debouncer
 $.debounce = (func, wait, immediate) ->
   ->
     context = this
@@ -51,6 +53,7 @@ $ ->
       $('.instagram').html html.join("")
       setTimeout fauxeqheight, 1000
 
+  # Faux Equal Height
   fauxeqheight = ->
     col1 = $(".wrapper .column-1")
     col2 = $(".wrapper .column-2")
