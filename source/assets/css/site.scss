@@ -70,12 +70,12 @@ hr {
       max-width: 100%;
       margin-bottom: 6em;
 
-      transform: rotate(-8deg);
-      transition: transform .3s $bounce;
+      // transform: rotate(-6deg);
+      // transition: transform .3s $bounce;
 
-      &:hover {
-        transform: rotate(0);
-      }
+      // &:hover {
+      //   transform: rotate(0);
+      // }
     }
 
     .hero-inner {
