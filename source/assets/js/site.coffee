@@ -8,6 +8,32 @@ $ ->
   # FastClick
   FastClick.attach document.body
 
+  # Instagram
+  $.ajax
+    dataType: "jsonp"
+    url: "https://api.instagram.com/v1/users/470161390/media/recent"
+    data:
+      client_id: '18cab2f355964a2fa6238096fc94483b'
+      count: 6
+
+    error: (response) ->
+
+    success: (response) ->
+      $.each response.data, (i, data) ->
+        caption = $.trim(data.caption.text).replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "")
+        caption = "<div class='caption'><div class='caption-inner'>#{$.trim(caption).trunc(200, true)}</div></div>"
+
+        $('.instagram').append """
+        <figure>
+          <img src="#{data.images.low_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
+          <figcaption>
+            #{caption}
+            <div class="likes">#{data.likes.count} likes</div>
+            <a href="#{data.link}" target="_blank">View on Instagram</a>
+          </figcaption>
+        </figure>
+        """
+
   # Replace SVG to inline SVG
   # http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
   # $('img[src*=".svg"]').each ->
@@ -32,34 +58,3 @@ $ ->
   #     # Replace image with new SVG
   #     $img.replaceWith $svg
   #   ), "xml"
-
-
-  # Instagram
-  $.ajax
-    dataType: "jsonp"
-    url: "https://api.instagram.com/v1/users/470161390/media/recent"
-    data:
-      client_id: '18cab2f355964a2fa6238096fc94483b'
-      count: 6
-
-    success: (response) ->
-      $.each response.data, (i, data) ->
-        # match = $.trim(data.caption.text).replace(/\s+/g, " ").match(/THE MUHIBBAIN - Update\.\s+(.*)\s+THE MUHIBBAIN - Update\./)
-        # if match
-        #   caption = "<div class='caption'><div class='caption-inner'>#{$.trim(match[1]).trunc(200, true)}</div></div>"
-        # else
-        #   caption = ""
-
-        caption = $.trim(data.caption.text).replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "")
-        caption = "<div class='caption'><div class='caption-inner'>#{$.trim(caption).trunc(200, true)}</div></div>"
-
-        $('.instagram').append """
-        <figure>
-          <img src="#{data.images.low_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
-          <figcaption>
-            #{caption}
-            <div class="likes">#{data.likes.count} likes</div>
-            <a href="#{data.link}" target="_blank">View on Instagram</a>
-          </figcaption>
-        </figure>
-        """
