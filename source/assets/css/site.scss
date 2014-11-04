@@ -18,16 +18,14 @@ html, body {
 }
 
 body {
-  overflow-x: hidden;
-}
-
-body {
   background: $bg-gray;
   @include texture(180deg, lighten($bg-gray, 0), darken($bg-gray, 20), 67, 1);
   background-attachment: fixed;
   font-weight: 300;
   margin: 0;
   padding: 0;
+  position: relative;
+  overflow-x: hidden;
 }
 
 p, div, h1, h2, h3, h4, h5, h6 {
@@ -93,7 +91,7 @@ hr {
           }
         }
 
-        h6 {
+        h3 {
           font-size: 1em;
           font-weight: 100;
           letter-spacing: .1em;
@@ -124,6 +122,15 @@ hr {
             font-size: 1.4em;
           }
         }
+
+        a {
+          color: #fff;
+          border-bottom: 1px dotted tint($lcm-red, 30);
+          &:hover {
+            color: tint($lcm-red, 50);
+          }
+        }
+
       }
 
       hr {
@@ -132,19 +139,17 @@ hr {
       }
 
       .hero-store {
-        h6 {
+        h3 {
           margin: 0 auto .8em;
-          font-weight: 400;
           display: inline-block;
-          // border: 2px solid rgba(#fff, .7);
           border-radius: 4px;
           padding: .3em .5em .3em .7em;
           letter-spacing: .2em;
           background: #fff;
           color: $lcm-red;
-          text-transform: uppercase;
-
           font-size: .8em;
+          font-weight: 400;
+          text-transform: uppercase;
 
           @include media($medium-up) {
             font-size: 1em;
@@ -169,13 +174,15 @@ hr {
           img, svg {
             height: 3em;
             vertical-align: baseline;
+            transition: opacity .3s;
+
             path {
               transition: fill .3s;
             }
           }
 
           &:hover img, &:hover svg {
-            opacity: 1;
+            opacity: .6;
             path {
               fill: $lcm-darkblue;
             }
@@ -417,6 +424,11 @@ hr {
 .albuminfo {
   background: #fff;
 
+  hr {
+    border-width: 4px;
+    border-color: rgba($lcm-gray, .2);
+  }
+
   .hashlcm {
     background: rgba(#fff, .9);
 
@@ -426,7 +438,8 @@ hr {
       padding: 2em;
 
       @include media($medium-up) {
-        padding-top: 8em;
+        padding: 8em 2em 4em;
+        padding: 4em;
       }
     }
 
@@ -465,7 +478,7 @@ hr {
       }
 
       @include media($large-screen) {
-        width: 70%;
+        width: 60%;
       }
     }
   }
@@ -483,10 +496,50 @@ hr {
   }
 
   .promo {
-    background: #fff url(/assets/img/promo-5hari.jpg) center center no-repeat;
-    background-size: contain;
-    height: 400px;
-    margin-top: 3em;
+    background: #fff;
+    padding: 4em 2em 0;
+    text-align: center;
+
+    @include media($medium-up) {
+      padding-top: 8em;
+    }
+
+    h3 {
+      display: inline-block;
+      margin-bottom: .2em;
+      border-radius: 4px;
+      padding: .3em .5em .3em .7em;
+      letter-spacing: .2em;
+      background: $lcm-red;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 400;
+      text-transform: uppercase;
+
+      @include media($medium-up) {
+        font-size: 1.4em;
+      }
+    }
+
+    h4 {
+      font-size: 1em;
+      font-weight: 300;
+      letter-spacing: .1em;
+
+      @include media($medium-up) {
+        font-size: 1.2em;
+      }
+    }
+
+    .bunting {
+      img {
+        width: 80%;
+      }
+      // background: #fff url(/assets/img/promo-5hari.jpg) center center no-repeat;
+      // background-size: contain;
+      // height: 500px;
+      // margin-top: 2em;
+    }
   }
 }
 
