@@ -11,6 +11,7 @@
 
 // base styles
 $bg-gray: tint($lcm-gray, 20);
+$bounce: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 html, body {
   width: 100%;
@@ -28,13 +29,13 @@ body {
   overflow-x: hidden;
 }
 
-p, div, h1, h2, h3, h4, h5, h6 {
-  transition: font-size .5s;
-}
+// p, div, h1, h2, h3, h4, h5, h6 {
+//   transition: font-size .5s;
+// }
 
-img, svg {
-  transition: height .5s, width .5s;
-}
+// img, svg {
+//   transition: height .5s, width .5s;
+// }
 
 hr {
   border-bottom: 2px solid tint($lcm-gray, 20);
@@ -45,26 +46,36 @@ hr {
 .wrapper {
   @include outer-container(100%);
   @include clearfix;
-  // height: 100%;
 
   .column-1, .column-2 {
-    @include media($large-screen) {
+    @include media($large) {
       @include span-columns(6 of 12, block-collapse);
     }
+  }
+
+  &.red {
+    background: $lcm-red;
+  }
+  &.white {
+    background: #fff;
   }
 }
 
 .masthead {
-  min-height: 100%;
-  // box-shadow: 10px 0 20px rgba(#000, .3);
+  background: $lcm-red;
 
   .hero {
-    background: $lcm-red;
-
     .hero-logo img, .hero-logo svg {
       width: 400px;
       max-width: 100%;
       margin-bottom: 6em;
+
+      transform: rotate(-8deg);
+      transition: transform .3s $bounce;
+
+      &:hover {
+        transform: rotate(0);
+      }
     }
 
     .hero-inner {
@@ -275,7 +286,7 @@ hr {
     margin: auto;
     background: $bg-gray;
 
-    @include media($large-screen) {
+    @include media($large) {
       width: 100%;
     }
 
@@ -302,15 +313,23 @@ hr {
       position: relative;
       margin: 0;
       padding: 0;
-      background: $lcm-gray;
+      // background: $lcm-gray;
       float: left;
       overflow: hidden;
       text-align: center;
       cursor: pointer;
       width: 50%;
 
-      @include media($medium-up) {
-        width: 33.333%;
+      &:last-child {
+        display: none;
+      }
+
+      @include media($large) {
+        width: 33.33%;
+
+        &:last-child {
+          display: block;
+        }
       }
 
       .thumb {
@@ -318,37 +337,19 @@ hr {
         display: block;
         width: 100%;
         opacity: 1;
-        transition: opacity 0.35s, transform 0.35s;
-        transform: scale(1.12);
+        transition: opacity 0.3s, transform 0.3s;
+        transform: scale(1.15);
       }
 
       &:hover .thumb {
         opacity: 0.8;
-        transform: scale(1);
+        transform: scale(1.02);
       }
 
       figcaption::before,
       figcaption::after {
         pointer-events: none;
       }
-
-      // figcaption::before {
-      //   position: absolute;
-      //   top: 8px;
-      //   right: 8px;
-      //   bottom: 8px;
-      //   left: 8px;
-      //   border: 4px solid #fff;
-      //   content: '';
-      //   transform: scale(1.1);
-      //   opacity: 0;
-      //   transition: opacity 0.35s, transform 0.35s;
-      // }
-
-      // &:hover figcaption::before {
-      //   opacity: .5;
-      //   transform: scale(1);
-      // }
 
       figcaption,
       figcaption > a {
@@ -379,10 +380,9 @@ hr {
         font-size: .8em;
         line-height: 1;
         color: #fff;
-        // box-shadow: 1px 1px 3px rgba(#000, .1);
 
         transform: translateY(-130%);
-        transition: transform .3s;
+        transition: transform .3s $bounce;
       }
 
       &:hover figcaption .likes {
@@ -392,7 +392,7 @@ hr {
       figcaption .caption {
         position: absolute;
         z-index: 5;
-        background: rgba($lcm-gray-dark, .8);
+        background: rgba(darken($lcm-gray-dark, 20), .7);
         width: 100%;
         bottom: 0;
         overflow: hidden;
@@ -401,11 +401,11 @@ hr {
 
         transform-origin: bottom;
         transform: rotateX(90deg);
-        transition: transform .3s;
+        transition: transform .5s $bounce;
 
         .caption-inner {
           padding: 10px;
-          font-size: .8em;
+          font-size: .9em;
           font-weight: 300;
           line-height: 1;
         }
@@ -413,8 +413,6 @@ hr {
 
       &:hover figcaption .caption {
         transform: rotateX(0);
-        .caption-inner {
-        }
       }
 
     }
@@ -430,8 +428,6 @@ hr {
   }
 
   .hashlcm {
-    background: rgba(#fff, .9);
-
     .hashlcm-inner {
       @include outer-container;
       @include clearfix;
@@ -457,10 +453,6 @@ hr {
   }
 
   .tracklist {
-    .tracklist-layer {
-      background: rgba(#fff, .8);
-    }
-
     .tracklist-inner {
       @include outer-container;
       @include clearfix;
@@ -473,11 +465,11 @@ hr {
       margin: auto;
       width: 90%;
 
-      @include media($medium-screen) {
+      @include media($medium) {
         width: 60%;
       }
 
-      @include media($large-screen) {
+      @include media($large) {
         width: 60%;
       }
     }
@@ -485,19 +477,13 @@ hr {
 
   .themuhibbain {
     text-align: center;
-    // background: #fff url(/assets/img/themuhibbain-640.jpg) center center no-repeat;
-    // background-size: contain;
-    // height: 400px;
-    // transition: height .8s;
 
-    // @include media($medium-up) {
-    //   background-image: url(/assets/img/themuhibbain-860.jpg);
-    //   height: 600px;
-    // }
+    img, svg {
+      width: 100%;
+    }
   }
 
   .promo {
-    background: #fff;
     padding: 4em 2em 0;
     text-align: center;
 
@@ -537,13 +523,16 @@ hr {
     }
 
     .bunting {
-      img {
-        width: 80%;
+      margin-top: 1em;
+      text-align: center;
+
+      img, svg {
+        width: 100%;
+
+        @include media($medium-up) {
+          width: 80%;
+        }
       }
-      // background: #fff url(/assets/img/promo-5hari.jpg) center center no-repeat;
-      // background-size: contain;
-      // height: 500px;
-      // margin-top: 2em;
     }
   }
 }
@@ -552,26 +541,24 @@ hr {
   $footer-color: white;
   $footer-link-color: rgba($footer-color, .5);
 
+  @include outer-container(100%);
   @include clearfix;
+
+  .footer-left, .footer-right {
+    @include media($large) {
+      @include span-columns(6 of 12, block-collapse);
+    }
+  }
 
   padding: 2em 2em 6em;
   width: 100%;
   text-align: center;
 
-  hr {
-    border-color: rgba(#fff, .2);
-    @include media($large-screen) {
-      display: none;
-    }
-  }
-
   .footer-left {
-    margin-right: 1em;
-    margin-bottom: 1em;
+    text-align: center;
 
-    @include media($large-screen) {
-      float: left;
-      margin-bottom: 0;
+    @include media($large) {
+      text-align: left;
     }
 
     img, svg {
@@ -585,17 +572,19 @@ hr {
     a:hover img, a:hover svg {
       opacity: 1;
     }
+
+    hr {
+      border-color: rgba(#fff, .2);
+      @include media($large) {
+        display: none;
+      }
+    }
   }
 
   .footer-right {
-    @include media($large-screen) {
-      float: right;
-    }
-
     .footer-text {
-      @include media($large-screen) {
-        float: left;
-        margin-right: 1em;
+      @include media($large) {
+        float: right;
         text-align: right;
       }
 
@@ -620,11 +609,11 @@ hr {
     }
 
     ul.footer-social {
-      margin-top: .5em;
+      margin-bottom: .5em;
 
-      @include media($large-screen) {
-        float: left;
-        margin-top: 0;
+      @include media($large) {
+        float: right;
+        margin-left: 1em;
       }
 
       li {
@@ -664,3 +653,102 @@ hr {
     }
   }
 }
+
+
+// .footer--exp {
+//   @include outer-container(100%);
+//   @include clearfix;
+
+//   .footer-left, .footer-right {
+//     @include media($large) {
+//       @include span-columns(6 of 12, block-collapse);
+//     }
+//   }
+
+//   background: #151515 url(/assets/img/tm-erwan-left-300.jpg) no-repeat top left;
+//   background-size: contain;
+//   position: relative;
+
+//   .bg-layer {
+//     background: transparent url(/assets/img/tm-adib-right-300.jpg) no-repeat top right;
+//     background-size: contain;
+//     height: 100%;
+
+//     padding: 2em 2em 6em;
+//     width: 100%;
+//     text-align: center;
+//   }
+
+//   img, svg {
+//     vertical-align: middle;
+//     opacity: .15;
+//     margin: 0 .3em;
+//     height: 2.8em;
+//     transition: opacity .3s;
+//   }
+
+//   a:hover img, a:hover svg {
+//     opacity: .5;
+//   }
+
+//   hr {
+//     border-color: rgba(#fff, .2);
+//     width: 30%;
+//   }
+
+//   .footer-text {
+//     color: #fff;
+
+//     p {
+//       margin: 0;
+//       font-size: .8em;
+//       line-height: 1.1;
+//     }
+//     p.manager {
+//       font-size: 1em;
+//       line-height: 1.1;
+//     }
+
+//     a {
+//       color: #fff;
+//       &:hover {
+//         color: tint(#fff, 40);
+//       }
+//     }
+//   }
+
+//   ul.footer-social {
+//     margin-bottom: .5em;
+
+//     li {
+//       display: inline-block;
+//       font-size: 1em;
+//       padding-right: .5em;
+//       font-weight: 300;
+//       letter-spacing: .08em;
+//       line-height: 2;
+//       height: 2em;
+//       color: #fff;
+
+//       &:last-child {
+//         padding-right: 0;
+//       }
+
+//       a {
+//         display: block;
+//       }
+//     }
+
+//     img, svg {
+//       opacity: .2;
+//       height: 2em;
+//       padding: 1px;
+//       transition: opacity .2s;
+
+//       &:hover {
+//         opacity: .5
+//       }
+//     }
+//   }
+// }
+
