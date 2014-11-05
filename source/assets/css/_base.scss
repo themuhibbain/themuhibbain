@@ -35,7 +35,13 @@
 @import "bitters/app/assets/stylesheets/buttons";
 
 // Refills
-@import "refills/source/stylesheets/refills/textures";
+// @import "refills/source/stylesheets/refills/textures";
+
+// Easing
+@import "easing";
+
+// Animation.scss
+// @import "animate-scss/src/animate";
 
 // vars
 $imgurl: "/assets/img";

@@ -1,0 +1,97 @@
+// .footer--exp {
+//   @include outer-container(100%);
+//   @include clearfix;
+
+//   .footer-left, .footer-right {
+//     @include media($large) {
+//       @include span-columns(6 of 12, block-collapse);
+//     }
+//   }
+
+//   background: #151515 url(/assets/img/tm-erwan-left-300.jpg) no-repeat top left;
+//   background-size: contain;
+//   position: relative;
+
+//   .bg-layer {
+//     background: transparent url(/assets/img/tm-adib-right-300.jpg) no-repeat top right;
+//     background-size: contain;
+//     height: 100%;
+
+//     padding: 2em 2em 6em;
+//     width: 100%;
+//     text-align: center;
+//   }
+
+//   img, svg {
+//     vertical-align: middle;
+//     opacity: .15;
+//     margin: 0 .3em;
+//     height: 2.8em;
+//     transition: opacity .3s;
+//   }
+
+//   a:hover img, a:hover svg {
+//     opacity: .5;
+//   }
+
+//   hr {
+//     border-color: rgba(#fff, .2);
+//     width: 30%;
+//   }
+
+//   .footer-text {
+//     color: #fff;
+
+//     p {
+//       margin: 0;
+//       font-size: .8em;
+//       line-height: 1.1;
+//     }
+//     p.manager {
+//       font-size: 1em;
+//       line-height: 1.1;
+//     }
+
+//     a {
+//       color: #fff;
+//       &:hover {
+//         color: tint(#fff, 40);
+//       }
+//     }
+//   }
+
+//   ul.footer-social {
+//     margin-bottom: .5em;
+
+//     li {
+//       display: inline-block;
+//       font-size: 1em;
+//       padding-right: .5em;
+//       font-weight: 300;
+//       letter-spacing: .08em;
+//       line-height: 2;
+//       height: 2em;
+//       color: #fff;
+
+//       &:last-child {
+//         padding-right: 0;
+//       }
+
+//       a {
+//         display: block;
+//       }
+//     }
+
+//     img, svg {
+//       opacity: .2;
+//       height: 2em;
+//       padding: 1px;
+//       transition: opacity .2s;
+
+//       &:hover {
+//         opacity: .5
+//       }
+//     }
+//   }
+// }
+

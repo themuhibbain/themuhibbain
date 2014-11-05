@@ -3,15 +3,11 @@
 // Base
 @import "base";
 
-// Animation.scss
-// @import "animate-scss/src/animate";
-
 // ==================================================
 // Main stylesheet
 
 // base styles
 $bg-gray: tint($lcm-gray, 20);
-$bounce: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 html, body {
   width: 100%;
@@ -19,9 +15,7 @@ html, body {
 }
 
 body {
-  background: $bg-gray;
-  @include texture(180deg, lighten($bg-gray, 0), darken($bg-gray, 20), 67, 1);
-  background-attachment: fixed;
+  background: #fff;
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -53,12 +47,7 @@ hr {
     }
   }
 
-  &.red {
-    background: $lcm-red;
-  }
-  &.white {
-    background: #fff;
-  }
+  background: #fff;
 }
 
 .masthead {
@@ -71,7 +60,7 @@ hr {
       margin-bottom: 6em;
 
       // transform: rotate(-6deg);
-      // transition: transform .3s $bounce;
+      // transition: transform .3s $easeOutBack;
 
       // &:hover {
       //   transform: rotate(0);
@@ -370,44 +359,50 @@ hr {
 
       figcaption .likes {
         position: absolute;
-        top: 5px;
-        left: 5px;
+        top: 0;
+        left: 0;
         z-index: 10;
 
-        background: $lcm-red;
-        border-radius: 3px;
-        padding: 5px;
-        font-size: .8em;
-        line-height: 1;
-        color: #fff;
+        transform-origin: top;
+        transform: rotateX(90deg);
+        transition: transform .3s $easeOutQuart;
 
-        transform: translateY(-130%);
-        transition: transform .3s $bounce;
+        .likes-inner {
+          background: $lcm-red;
+          margin: 5px;
+          padding: 5px;
+          border-radius: 3px;
+          font-size: .8em;
+          line-height: 1;
+          color: #fff;
+        }
       }
 
       &:hover figcaption .likes {
-        transform: translateY(0);
+        transform: rotateX(0);
       }
 
       figcaption .caption {
         position: absolute;
         z-index: 5;
-        background: rgba(darken($lcm-gray-dark, 20), .7);
         width: 100%;
         bottom: 0;
         overflow: hidden;
-        text-align: left;
-        color: #fff;
 
         transform-origin: bottom;
         transform: rotateX(90deg);
-        transition: transform .5s $bounce;
+        transition: transform .3s $easeOutQuart;
 
         .caption-inner {
-          padding: 10px;
-          font-size: .9em;
+          background: rgba(darken($lcm-gray-dark, 20), .7);
+          margin: 5px;
+          padding: 5px;
+          border-radius: 3px;
+          font-size: .85em;
           font-weight: 300;
           line-height: 1;
+          text-align: left;
+          color: #fff;
         }
       }
 
@@ -534,8 +529,7 @@ hr {
 }
 
 .footer {
-  $footer-color: white;
-  $footer-link-color: rgba($footer-color, .5);
+  $footer-color: tint($lcm-gray, 30);
 
   @include outer-container(100%);
   @include clearfix;
@@ -546,34 +540,36 @@ hr {
     }
   }
 
+  background: #fff;
+
   padding: 2em 2em 6em;
   width: 100%;
   text-align: center;
 
   .footer-left {
+    margin-bottom: 3em;
     text-align: center;
 
     @include media($large) {
+      margin-bottom: 0;
       text-align: left;
+    }
+
+    .footer-labels li {
+      display: inline-block;
     }
 
     img, svg {
       vertical-align: middle;
-      opacity: .5;
-      margin: 0 .3em;
+      // opacity: .5;
+      margin: 0 .2em;
       height: 2.8em;
       transition: opacity .3s;
     }
 
     a:hover img, a:hover svg {
-      opacity: 1;
-    }
-
-    hr {
-      border-color: rgba(#fff, .2);
-      @include media($large) {
-        display: none;
-      }
+      // opacity: 1;
+      opacity: .8;
     }
   }
 
@@ -584,7 +580,7 @@ hr {
         text-align: right;
       }
 
-      color: $footer-link-color;
+      color: $footer-color;
 
       p {
         margin: 0;
@@ -597,9 +593,9 @@ hr {
       }
 
       a {
-        color: $footer-link-color;
+        color: $footer-color;
         &:hover {
-          color: tint($footer-link-color, 40);
+          color: tint($footer-color, 40);
         }
       }
     }
@@ -620,14 +616,14 @@ hr {
         letter-spacing: .08em;
         line-height: 2;
         height: 2em;
-        color: $footer-link-color;
+        color: $footer-color;
 
         &:last-child {
           padding-right: 0;
         }
 
         a {
-          color: $footer-link-color;
+          color: $footer-color;
           display: block;
 
           &:hover {
@@ -637,114 +633,16 @@ hr {
       }
 
       img, svg {
-        opacity: .5;
+        // opacity: .5;
         height: 2em;
         padding: 1px;
         transition: opacity .2s;
 
         &:hover {
-          opacity: 1;
+          // opacity: 1;
+          opacity: .8;
         }
       }
     }
   }
 }
-
-
-// .footer--exp {
-//   @include outer-container(100%);
-//   @include clearfix;
-
-//   .footer-left, .footer-right {
-//     @include media($large) {
-//       @include span-columns(6 of 12, block-collapse);
-//     }
-//   }
-
-//   background: #151515 url(/assets/img/tm-erwan-left-300.jpg) no-repeat top left;
-//   background-size: contain;
-//   position: relative;
-
-//   .bg-layer {
-//     background: transparent url(/assets/img/tm-adib-right-300.jpg) no-repeat top right;
-//     background-size: contain;
-//     height: 100%;
-
-//     padding: 2em 2em 6em;
-//     width: 100%;
-//     text-align: center;
-//   }
-
-//   img, svg {
-//     vertical-align: middle;
-//     opacity: .15;
-//     margin: 0 .3em;
-//     height: 2.8em;
-//     transition: opacity .3s;
-//   }
-
-//   a:hover img, a:hover svg {
-//     opacity: .5;
-//   }
-
-//   hr {
-//     border-color: rgba(#fff, .2);
-//     width: 30%;
-//   }
-
-//   .footer-text {
-//     color: #fff;
-
-//     p {
-//       margin: 0;
-//       font-size: .8em;
-//       line-height: 1.1;
-//     }
-//     p.manager {
-//       font-size: 1em;
-//       line-height: 1.1;
-//     }
-
-//     a {
-//       color: #fff;
-//       &:hover {
-//         color: tint(#fff, 40);
-//       }
-//     }
-//   }
-
-//   ul.footer-social {
-//     margin-bottom: .5em;
-
-//     li {
-//       display: inline-block;
-//       font-size: 1em;
-//       padding-right: .5em;
-//       font-weight: 300;
-//       letter-spacing: .08em;
-//       line-height: 2;
-//       height: 2em;
-//       color: #fff;
-
-//       &:last-child {
-//         padding-right: 0;
-//       }
-
-//       a {
-//         display: block;
-//       }
-//     }
-
-//     img, svg {
-//       opacity: .2;
-//       height: 2em;
-//       padding: 1px;
-//       transition: opacity .2s;
-
-//       &:hover {
-//         opacity: .5
-//       }
-//     }
-//   }
-// }
-

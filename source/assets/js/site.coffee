@@ -41,27 +41,27 @@ $ ->
 
         html.push """
           <figure>
-            <img src="#{data.images.low_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
+            <img src="#{data.images.standard_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
             <figcaption>
               #{caption}
-              <div class="likes">#{data.likes.count} likes</div>
+              <div class="likes"><div class="likes-inner">#{data.likes.count} likes</div></div>
               <a href="#{data.link}" target="_blank">View on Instagram</a>
             </figcaption>
           </figure>
           """
 
       $('.instagram').html html.join("")
-      setTimeout fauxeqheight, 1000
+      # setTimeout fauxeqheight, 1000
 
-  # Faux Equal Height
-  fauxeqheight = ->
-    col1 = $(".wrapper .column-1")
-    col2 = $(".wrapper .column-2")
+  # # Faux Equal Height
+  # fauxeqheight = ->
+  #   col1 = $(".wrapper .column-1")
+  #   col2 = $(".wrapper .column-2")
 
-    $(".wrapper").removeClass("red white").addClass(if col1.height() > col2.height() then "white" else "red")
+  #   $(".wrapper").removeClass("red white").addClass(if col1.height() > col2.height() then "white" else "red")
 
-  fauxeqheight()
-  $(window).resize $.debounce(fauxeqheight, 250)
+  # fauxeqheight()
+  # $(window).resize $.debounce(fauxeqheight, 250)
 
   # Replace SVG to inline SVG
   # http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
