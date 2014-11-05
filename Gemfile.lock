@@ -48,7 +48,7 @@ GEM
       uber (~> 0.0.4)
     htmlcompressor (0.1.2)
     http_parser.rb (0.6.0)
-    httpclient (2.5.2)
+    httpclient (2.5.3.2)
     i18n (0.6.11)
     image_optim (0.9.1)
       exifr (~> 1.1.3)

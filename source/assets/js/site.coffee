@@ -5,6 +5,10 @@ String::trunc = (n, useWordBoundary) ->
   s_ = (if useWordBoundary and toLong then s_.substr(0, s_.lastIndexOf(" ")) else s_)
   (if toLong then s_ + "&hellip;" else s_)
 
+# String extension: trim
+String::trim = ->
+  @replace(/^\s+|\s+$/g,"");
+
 # function debouncer
 $.debounce = (func, wait, immediate) ->
   ->
@@ -36,8 +40,11 @@ $ ->
     success: (response) ->
       html = []
       $.each response.data, (i, data) ->
-        caption = $.trim(data.caption.text).replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "")
-        caption = "<div class='caption'><div class='caption-inner'>#{$.trim(caption).trunc(200, true)}</div></div>"
+        caption = data.caption.text.replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "").trim()
+        # caption = caption.replace(/[@]+[A-Za-z0-9-_]+/g, "") # remove username
+        caption = caption.replace(/[#]+[A-Za-z0-9-_]+/g, "") # remove hashtag
+        caption = caption.trim().replace(/via\s*$/, "")
+        caption = "<div class='caption'><div class='caption-inner'>#{caption.trim().trunc(200, true)}</div></div>"
 
         html.push """
           <figure>
