@@ -68,7 +68,6 @@ hr {
     }
 
     .hero-inner {
-      @include outer-container;
       @include clearfix;
 
       padding: 6em 2em;
@@ -124,10 +123,10 @@ hr {
         }
 
         a {
-          color: #fff;
-          border-bottom: 1px dotted rgba(#fff, .6);
+          color: rgba(#fff, .6);
+          // border-bottom: 1px dotted rgba(#fff, .6);
           &:hover {
-            color: rgba(#fff, .6);
+            color: rgba(#fff, 1);
           }
         }
 

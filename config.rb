@@ -45,8 +45,8 @@ ignore /^.*\.psd/
 # Development-specific configuration
 # ----------------------------------------------
 configure :development do
+  activate :directory_indexes
   # activate :minify_html
-  # activate :directory_indexes
   # activate :asset_hash
   # activate :cache_buster
   # activate :minify_css
@@ -91,6 +91,14 @@ end
 # Helpers
 # ----------------------------------------------
 helpers do
+
+  def site_title
+    if current_page.data.title?
+      "#{current_page.data.title} &middot; #{data.site.title }"
+    else
+      data.site.title
+    end
+  end
 
   def imgurl(url = '')
     url.gsub!(/^\/|\/$/, '')

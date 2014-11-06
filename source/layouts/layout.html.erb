@@ -5,15 +5,17 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title><%= current_page.data.title || data.site.title %></title>
+    <title><%= site_title %></title>
 
-    <meta name="description" content="<%= current_page.data.description || data.site.description %>">
+    <meta name="description" content="<%= site_title %>">
     <meta name="keywords" content="<%= data.site.keywords %>">
     <meta name="author" content="@wansaleh">
 
     <link rel="shortcut icon" href="<%= imgurl("favicon.png") %>">
-
     <link href="/assets/css/site.css" rel="stylesheet">
+<% if current_page.data.css? then %>
+    <link href="/assets/css/<%= current_page.data.css %>.css" rel="stylesheet">
+<% end %>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
