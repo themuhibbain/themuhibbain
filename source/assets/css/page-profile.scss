@@ -37,9 +37,9 @@ button {
     height: 3em;
 
     &.r1 { background: $lcm-red; }
-    &.r2 { background: $blue; }
-    &.r3 { background: $flat-green-3; }
-    &.r4 { background: $flat-red-1; }
+    &.r2 { background: $ch-sky-1; }
+    &.r3 { background: $ch-green-1; }
+    &.r4 { background: $ch-yellow-2; }
   }
 }
 
@@ -140,7 +140,7 @@ button {
     }
 
     h1 {
-      color: $flat-green-3;
+      color: $ch-green-1;
       font-family: $serif;
       font-size: 1.8em;
       font-weight: 700;
@@ -165,7 +165,7 @@ button {
     }
 
     h3 {
-      color: $blue;
+      color: $ch-white-1;
       font-family: $serif;
       font-size: 1.4em;
       font-weight: 400;
