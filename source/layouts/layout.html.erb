@@ -12,7 +12,7 @@
     <meta name="author" content="@wansaleh">
 
     <link rel="shortcut icon" href="<%= imgurl("favicon.png") %>">
-    <link href="/assets/css/site.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
 <% if current_page.data.css? then %>
     <link href="/assets/css/<%= current_page.data.css %>.css" rel="stylesheet">
 <% end %>
@@ -29,7 +29,7 @@
 <%= yield %>
 
     <script src="/assets/js/vendor.js"></script>
-    <script src="/assets/js/site.js"></script>
+    <script src="/assets/js/main.js"></script>
 <% if current_page.data.js? then %>
     <script src="/assets/js/<%= current_page.data.js %>.js"></script>
 <% end %>

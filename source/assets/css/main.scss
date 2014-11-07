@@ -7,8 +7,6 @@
 // Main stylesheet
 
 // base styles
-$bg-gray: tint($lcm-gray, 20);
-
 html, body {
   width: 100%;
   height: 100%;
@@ -24,7 +22,7 @@ body {
 }
 
 hr {
-  border-bottom: 2px solid tint($lcm-gray, 20);
+  border-bottom: 2px solid tint($base-font-color, 20);
   width: 40%;
   margin: 1.5em auto;
 }
@@ -43,8 +41,6 @@ hr {
 }
 
 .masthead {
-  background: $lcm-red;
-
   .hero {
     .hero-logo img, .hero-logo svg {
       width: 400px;
@@ -55,6 +51,7 @@ hr {
     .hero-inner {
       @include clearfix;
 
+      background: $lcm-red;
       padding: 6em 2em;
       text-align: center;
       color: #fff;
@@ -257,8 +254,6 @@ hr {
 
   .video {
     margin: auto;
-    background: $bg-gray;
-
     @include media($large) {
       width: 100%;
     }
@@ -517,7 +512,7 @@ hr {
 }
 
 .footer {
-  $footer-color: $lcm-gray;
+  $footer-color: tint($base-font-color, 20);
 
   @include outer-container(100%);
   @include clearfix;

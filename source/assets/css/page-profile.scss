@@ -4,6 +4,7 @@
 @import "//fonts.googleapis.com/css?family=Questrial|Sanchez:400italic,400";
 
 $bg-color: #161414;
+$bg-color: #1f1d1d;
 $font-color: tint($bg-color, 60);
 
 body {
@@ -22,10 +23,9 @@ button {
 
 .profile-outer {
   background: $bg-color;
-  position: relative;
-  z-index: 10;
-  width: 100%;
   box-shadow: 0 0 3em rgba(#000, .5);
+  z-index: 10;
+  position: relative;
 }
 
 .profile-rainbow {
@@ -34,12 +34,12 @@ button {
 
   .r {
     @include span-columns(3 of 12, block-collapse);
-    height: .3em;
+    height: 3em;
 
     &.r1 { background: $lcm-red; }
     &.r2 { background: $blue; }
-    &.r3 { background: $grass-light; }
-    &.r4 { background: $bittersweet-light; }
+    &.r3 { background: $flat-green-3; }
+    &.r4 { background: $flat-red-1; }
   }
 }
 
@@ -140,7 +140,7 @@ button {
     }
 
     h1 {
-      color: $grass-light;
+      color: $flat-green-3;
       font-family: $serif;
       font-size: 1.8em;
       font-weight: 700;
@@ -225,7 +225,6 @@ button {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
+  z-index: 2;
+  position: relative;
 }
