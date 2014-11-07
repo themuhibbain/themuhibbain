@@ -25,6 +25,7 @@
     "refills": "master",
     "jquery-instagram": "~0.3.1",
     "instagram-lite": "~1.0.1",
-    "picturefill": "~2.1.0"
+    "picturefill": "~2.1.0",
+    "jquery-timeago": "~1.4.1"
   }
 }

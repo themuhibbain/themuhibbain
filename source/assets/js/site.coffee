@@ -23,6 +23,25 @@ $.debounce = (func, wait, immediate) ->
     timeout = setTimeout(later, wait)
     func.apply context, args  if callNow
 
+$.timeago.settings.strings =
+  prefixAgo: null
+  prefixFromNow: null
+  suffixAgo: "ago"
+  suffixFromNow: ""
+  seconds: "1m"
+  minute: "1m"
+  minutes: "%dm"
+  hour: "1h"
+  hours: "%dh"
+  day: "1d"
+  days: "%dd"
+  month: "1mo"
+  months: "%dmo"
+  year: "1yr"
+  years: "%dyr"
+  wordSeparator: " "
+  numbers: []
+
 $ ->
   # FastClick
   FastClick.attach document.body
@@ -46,19 +65,17 @@ $ ->
         caption = caption.trim().replace(/via\s*$/, "")
         caption = "<div class='caption'><div class='caption-inner'>#{caption.trim().trunc(200, true)}</div></div>"
 
+        date = $.timeago(new Date(parseInt(data.created_time) * 1000).toISOString())
+
         html.push """
           <figure>
             <img src="#{data.images.standard_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
             <figcaption>
               #{caption}
-              <div class="likes"><div class="likes-inner">#{data.likes.count} likes</div></div>
+              <div class="likes"><div class="likes-inner"><b>#{data.likes.count} likes</b> &middot; #{date}</div></div>
               <a href="#{data.link}" target="_blank">View on Instagram</a>
             </figcaption>
           </figure>
           """
 
       $('.instagram').html html.join("")
-
-  $(".lang .lg").click ->
-    lang = if $(this).parents("article").hasClass("profile-en") then "profile-ms" else "profile-en"
-    $(".profile-wrapper").removeClass("profile-en profile-ms").addClass(lang)
