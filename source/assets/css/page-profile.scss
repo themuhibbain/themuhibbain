@@ -4,10 +4,9 @@
 @import "//fonts.googleapis.com/css?family=Questrial|Sanchez:400italic,400";
 
 $bg-color: #161414;
-$font-color: tint($bg-color, 50);
+$font-color: tint($bg-color, 60);
 
 body {
-
   background: $bg-color;
   color: $font-color;
   font-weight: 300;
@@ -17,13 +16,8 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  font-family: 'Raleway', $sans-serif;
-  font-size: 1.8em;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+button {
+  transition: background .3s;
 }
 
 .profile-wrapper {
@@ -44,20 +38,20 @@ h1 {
     text-align: center;
 
     @include media($large) {
-      @include span-columns(6 of 12);
+      @include span-columns(4 of 12);
       text-align: left;
     }
 
     @include pad(1em);
 
     img {
-      width: 80%;
+      width: 100%;
     }
   }
 
   .content {
     @include media($large) {
-      @include span-columns(6 of 12);
+      @include span-columns(8 of 12);
     }
 
     @include pad(1em);
@@ -70,103 +64,125 @@ h1 {
       display: block;
     }
   }
-}
 
-article {
-  $sans-serif: 'Questrial', $sans-serif;
-  $serif: 'Sanchez', $serif;
-
-  @include clearfix;
-
-  .type {
-    border-bottom: 1px solid;
-    display: inline-block;
-    font-family: $sans-serif;
-    font-size: .7em;
-    font-weight: 800;
-    margin-bottom: 2em;
-    padding: .3em 0;
-    text-align: left;
-    text-transform: uppercase;
+  &.profile-en {
+    article.profile-ms {
+      display: none;
+    }
   }
-
-  h1 {
-    color: $grass-light;
-    font-family: $serif;
-    font-size: 1.8em;
-    font-weight: 700;
-    margin-bottom: .5em;
-
-    @include media($medium-screen) {
-      font-size: 2.6em;
+  &.profile-ms {
+    article.profile-en {
+      display: none;
     }
   }
 
-  h2 {
-    font-family: $serif;
-    font-style: italic;
-    font-size: 1.2em;
-    font-weight: 400;
-    line-height: 1.4em;
-    margin-bottom: 1.1em;
+  article {
+    $sans-serif: 'Questrial', $sans-serif;
+    $serif: 'Sanchez', $serif;
 
-    @include media($medium-screen) {
-      font-size: 1.3em;
-    }
-  }
+    @include clearfix;
 
-  h3 {
-    color: $lavender-light;
-    font-family: $serif;
-    font-size: 1.4em;
-    font-weight: 400;
-    line-height: 1.3em;
-    margin-bottom: 1em;
-    letter-spacing: .1em;
-    // text-transform: uppercase;
-  }
-
-  p.date {
-    color: rgba($font-color, .5);
-    font-family: $serif;
-    font-style: italic;
-    font-size: .9em;
-    // margin-bottom: .3em;
-  }
-
-  p {
-    font-family: $sans-serif;
-    line-height: 1.5em;
-    font-size: 1.05em;
-    margin-bottom: 1.5em;
-  }
-
-  a.read-more {
-    display: inline-block;
-    font-family: $sans-serif;
-    font-weight: 700;
-    font-size: .8em;
-    text-transform: uppercase;
-    margin-left: .2em;
-    position: relative;
-
-    span {
+    .lang {
+      @include clearfix;
       font-family: $sans-serif;
-      font-style: normal;
-      position: absolute;
-      font-size: 1.5em;
-      top: -1px;
-      right: -12px;
+      margin-bottom: 2em;
     }
-  }
 
-  hr {
-    width: 3em;
-    margin-top: 4em;
-    border-color: $font-color;
-  }
+    .type {
+      border-bottom: 1px solid;
+      font-size: .7em;
+      font-weight: 800;
+      padding: .3em 0;
+      float: left;
+      text-transform: uppercase;
+    }
 
-  p.author {
-    font-family: $sans-serif;
+    .lg {
+      font-size: .7em;
+      font-weight: 800;
+      padding: .5em .8em;
+      float: right;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: $grass-light;
+      font-family: $serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      margin-bottom: .5em;
+
+      @include media($medium-screen) {
+        font-size: 2.6em;
+      }
+    }
+
+    h2 {
+      font-family: $serif;
+      font-style: italic;
+      font-size: 1.2em;
+      font-weight: 400;
+      line-height: 1.4em;
+      margin-bottom: 1.1em;
+
+      @include media($medium-screen) {
+        font-size: 1.3em;
+      }
+    }
+
+    h3 {
+      color: $lavender-light;
+      font-family: $serif;
+      font-size: 1.4em;
+      font-weight: 400;
+      line-height: 1.3em;
+      margin-bottom: 1em;
+      letter-spacing: .1em;
+      // text-transform: uppercase;
+    }
+
+    p.date {
+      color: rgba($font-color, .5);
+      font-family: $serif;
+      font-style: italic;
+      font-size: .9em;
+      // margin-bottom: .3em;
+    }
+
+    p {
+      font-family: $sans-serif;
+      line-height: 1.5em;
+      font-size: 1.05em;
+      margin-bottom: 1.5em;
+    }
+
+    a.read-more {
+      display: inline-block;
+      font-family: $sans-serif;
+      font-weight: 700;
+      font-size: .8em;
+      text-transform: uppercase;
+      margin-left: .2em;
+      position: relative;
+
+      span {
+        font-family: $sans-serif;
+        font-style: normal;
+        position: absolute;
+        font-size: 1.5em;
+        top: -1px;
+        right: -12px;
+      }
+    }
+
+    hr {
+      width: 3em;
+      margin-top: 4em;
+      border-color: $font-color;
+    }
+
+    p.author {
+      font-family: $sans-serif;
+    }
   }
 }

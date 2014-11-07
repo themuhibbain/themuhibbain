@@ -58,39 +58,7 @@ $ ->
           """
 
       $('.instagram').html html.join("")
-      # setTimeout fauxeqheight, 1000
 
-  # # Faux Equal Height
-  # fauxeqheight = ->
-  #   col1 = $(".wrapper .column-1")
-  #   col2 = $(".wrapper .column-2")
-
-  #   $(".wrapper").removeClass("red white").addClass(if col1.height() > col2.height() then "white" else "red")
-
-  # fauxeqheight()
-  # $(window).resize $.debounce(fauxeqheight, 250)
-
-  # Replace SVG to inline SVG
-  # http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
-  # $('img[src*=".svg"]').each ->
-  #   $img = $(this)
-  #   imgID = $img.attr("id")
-  #   imgClass = $img.attr("class")
-  #   imgURL = $img.attr("src")
-
-  #   $.get imgURL, ((data) ->
-  #     # Get the SVG tag, ignore the rest
-  #     $svg = $(data).find("svg")
-
-  #     # Add replaced image's ID to the new SVG
-  #     $svg = $svg.attr("id", imgID)  if imgID?
-
-  #     # Add replaced image's classes to the new SVG
-  #     $svg = $svg.attr("class", imgClass + " replaced-svg")  if imgClass?
-
-  #     # Remove any invalid XML tags as per http://validator.w3.org
-  #     $svg = $svg.removeAttr("xmlns:a")
-
-  #     # Replace image with new SVG
-  #     $img.replaceWith $svg
-  #   ), "xml"
+  $(".lang .lg").click ->
+    lang = if $(this).parents("article").hasClass("profile-en") then "profile-ms" else "profile-en"
+    $(".profile-wrapper").removeClass("profile-en profile-ms").addClass(lang)
