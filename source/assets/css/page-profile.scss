@@ -28,6 +28,21 @@ button {
   box-shadow: 0 0 3em rgba(#000, .5);
 }
 
+.profile-rainbow {
+  @include outer-container(100%);
+  @include clearfix;
+
+  .r {
+    @include span-columns(3 of 12, block-collapse);
+    height: .3em;
+
+    &.r1 { background: $lcm-red; }
+    &.r2 { background: $blue; }
+    &.r3 { background: $grass-light; }
+    &.r4 { background: $bittersweet-light; }
+  }
+}
+
 .profile-wrapper {
   @include outer-container;
   @include clearfix;
