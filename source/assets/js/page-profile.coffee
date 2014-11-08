@@ -1,5 +1,6 @@
 $ ->
   # Profile page language
-  $(".lang .lg").click ->
-    lang = if $(this).parents("article").hasClass("profile-en") then "profile-ms" else "profile-en"
-    $(".profile-wrapper").removeClass("profile-en profile-ms").addClass(lang)
+  $(".lang-btn-en").click ->
+    $(".profile-outer").attr("lang", "en")
+  $(".lang-btn-ms").click ->
+    $(".profile-outer").attr("lang", "ms")
