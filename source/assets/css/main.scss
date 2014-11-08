@@ -28,6 +28,10 @@ hr {
   margin: 1.5em auto;
 }
 
+.hide {
+  display: none;
+}
+
 .wrapper {
   @include outer-container(100%);
   @include clearfix;
