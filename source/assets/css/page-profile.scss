@@ -1,14 +1,15 @@
 @charset "utf-8";
 
-@import "base";
-@import "//fonts.googleapis.com/css?family=Questrial|Sanchez:400italic,400";
+// @import "//fonts.googleapis.com/css?family=Questrial|Sanchez:400italic,400|Raleway:300,500";
+@import "//fonts.googleapis.com/css?family=Raleway:300,500";
 
-$bg-color: #1f1d1d;
-$font-color: #fff;
+@import "base";
+
+$brown-dark: #1f1d1d;
 
 body {
-  background: #fff;
-  color: $font-color;
+  background: $ch-white-1;
+  color: $ch-gray-1;
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -17,12 +18,13 @@ body {
 }
 
 button {
+  outline: none;
   transition: background .3s;
 }
 
 article {
-  $sans-serif: 'Questrial', $sans-serif;
-  $serif: 'Sanchez', $serif;
+  $sans-serif: 'Raleway', $sans-serif;
+  $serif: 'Raleway', $serif;
 
   @include clearfix;
 
@@ -35,7 +37,8 @@ article {
   .type {
     border-bottom: 1px solid;
     font-size: .7em;
-    font-weight: 800;
+    font-weight: 300;
+    letter-spacing: .05em;
     padding: .3em 0;
     float: left;
     text-transform: uppercase;
@@ -43,7 +46,8 @@ article {
 
   .lang-btn {
     font-size: .7em;
-    font-weight: 800;
+    font-weight: 300;
+    letter-spacing: .05em;
     padding: .5em .8em;
     float: right;
     text-transform: uppercase;
@@ -53,7 +57,7 @@ article {
     color: $ch-green-1;
     font-family: $serif;
     font-size: 2em;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: .5em;
 
     @include media($medium-up) {
@@ -63,10 +67,10 @@ article {
 
   h2 {
     font-family: $serif;
-    font-style: italic;
+    // font-style: italic;
     font-size: 1.3em;
-    font-weight: 400;
-    line-height: 1.3em;
+    font-weight: 300;
+    line-height: 1.4em;
     margin-bottom: 1.1em;
 
     @include media($medium-up) {
@@ -78,15 +82,23 @@ article {
     color: $ch-white-2;
     font-family: $serif;
     font-size: 1.4em;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.3em;
-    margin-bottom: 1em;
+    margin: 2em 0 1em;
     letter-spacing: .1em;
-    // text-transform: uppercase;
+    text-transform: uppercase;
+
+    @include media($medium-up) {
+      font-size: 1.6em;
+    }
+
+    img {
+      height: 1em;
+    }
   }
 
   p.date {
-    color: rgba($font-color, .5);
+    color: rgba($ch-white-1, .5);
     font-family: $serif;
     font-style: italic;
     font-size: .9em;
@@ -95,9 +107,10 @@ article {
 
   p {
     font-family: $sans-serif;
-    line-height: 1.5em;
-    font-size: 1.05em;
-    margin-bottom: 1.5em;
+    font-weight: 300;
+    line-height: 1.7em;
+    font-size: 1.1em;
+    margin-bottom: 2em;
   }
 
   h2:last-child, p:last-child {
@@ -133,31 +146,34 @@ article {
   p.author {
     font-family: $sans-serif;
     color: $lcm-red;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
   }
 }
 
 .profile-outer {
   &:lang(en) {
-    article:lang(ms) {
+    :lang(ms) {
       display: none;
     }
   }
   &:lang(ms) {
-    article:lang(en) {
+    :lang(en) {
       display: none;
     }
   }
 }
 
 .profile-masthead {
-  background: url(bg/bg01.png), url(../img/header1.jpg) no-repeat;
-  background-color: $bg-color;
+  background-color: $brown-dark;
+  background-image: url(bg/bg01.png), url(../img/header_800.jpg);
+  background-repeat: repeat, no-repeat;
   background-position: top left, center center;
   background-size: auto, cover;
-
   padding: 6em 0 1em;
+  color: $ch-white-1;
+
   @include media($medium-up) {
+    background-image: url(bg/bg01.png), url(../img/header_1800.jpg);
     padding-bottom: 3em;
   }
 
@@ -197,12 +213,18 @@ article {
     @include media($medium-up) {
       width: 70%;
     }
+
+    a {
+      color: $ch-white-2;
+      &:hover {
+        color: $lcm-red;
+      }
+    }
   }
 }
 
 .profile-middle, .profile-bottom {
   padding: 1em 0;
-  background: #fff;
 
   @include media($medium-up) {
     padding: 3em 0;
@@ -224,15 +246,15 @@ article {
 }
 
 .profile-middle {
-  background-color:    #fff;
-  background-image:    url('bg/bg03.png'),   url('bg/bg04.png'),   url('bg/bg02.png');
-  background-repeat:   no-repeat,                no-repeat,                repeat;
-  background-size:     100% 15em,                100% 15em,                auto auto;
-  background-position: top center,               bottom center,            top left;
+  background-color:    $ch-white-1;
+  background-image:    url('bg/bg03.png'), url('bg/bg04.png'), url('bg/bg02.png');
+  background-repeat:   no-repeat,          no-repeat,          repeat;
+  background-size:     100% 15em,          100% 15em,          auto auto;
+  background-position: top center,         bottom center,      top left;
   color: $ch-gray-1;
 
   h3 {
-    color: $ch-gray-2;
+    color: $ch-green-1;
   }
 
   p.date {
@@ -241,8 +263,13 @@ article {
 }
 
 .profile-bottom {
-  background: $bg-color;
+  background: $brown-dark;
+  color: $ch-white-2;
   padding-bottom: 0;
+
+  h3 {
+    margin-top: 1em;
+  }
 
   .themuhibbain-pic {
     padding-top: 3em;

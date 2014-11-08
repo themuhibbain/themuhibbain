@@ -23,6 +23,10 @@ $.debounce = (func, wait, immediate) ->
     timeout = setTimeout(later, wait)
     func.apply context, args  if callNow
 
+$.nowAndResize = (func) ->
+  $(window).resize($.debounce(func, 250))
+  func()
+
 $.timeago.settings.strings =
   prefixAgo: null
   prefixFromNow: null
