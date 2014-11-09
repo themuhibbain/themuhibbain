@@ -28,7 +28,6 @@ config[:js_dir] = 'assets/js'
 config[:images_dir] = 'assets/img'
 config[:partials_dir] = 'partials'
 config[:build_dir] = '../themuhibbain.github.io'
-
 config[:trailing_slash] = false
 
 # Page options, layouts, aliases and proxies
@@ -50,7 +49,7 @@ configure :development do
   # activate :asset_hash
   # activate :cache_buster
   # activate :minify_css
-  config[:debug_assets] = true
+  set :debug_assets, true
 end
 
 # Build-specific configuration
@@ -73,6 +72,7 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
+  set :js_compressor, Uglifier.new(:comments => :none)
 
   # Add asset fingerprinting to avoid cache issues
   activate :asset_hash, :exts => %w(.css .js)
@@ -81,7 +81,7 @@ configure :build do
   activate :cache_buster
 
   # Or use a different image path
-  # config[:http_prefix] = "/Content/images/"
+  # set :http_prefix, "/Content/images/"
 
   # Compress PNGs after build (First: gem install middleman-smusher)
   # require "middleman-smusher"

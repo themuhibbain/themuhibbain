@@ -22,3 +22,7 @@ gem 'sass', '~> 3.4.5'
 
 # image
 gem "fastimage"
+
+gem 'therubyracer' # faster JS compiles
+gem 'oj' # faster JS compiles
+gem 'uglifier'

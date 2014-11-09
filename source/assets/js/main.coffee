@@ -2,7 +2,7 @@
 #= require "fastclick"
 #= require "picturefill"
 #= require "jquery-timeago"
-#= require "widowfix.js"
+#= require "_widowfix.js"
 
 # String extension: truncate
 String::trunc = (n, useWordBoundary) ->

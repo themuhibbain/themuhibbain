@@ -36,6 +36,10 @@ hr {
   @include outer-container(100%);
   @include clearfix;
 
+  .row {
+    @include row;
+  }
+
   .column-1, .column-2 {
     @include media($large) {
       @include span-columns(6 of 12, block-collapse);
@@ -48,14 +52,10 @@ hr {
 .masthead {
   .hero {
     .hero-logo {
-      @include media($medium-up) {
-        display: none;
-      }
-
-      img, svg {
+      img {
         width: 400px;
         max-width: 100%;
-        margin-bottom: 1.5em;
+        margin-bottom: 2em;
       }
     }
 
@@ -63,8 +63,7 @@ hr {
       @include clearfix;
 
       background: $lcm-red;
-      // padding: 6em 2em;
-      padding: 7em 2em;
+      padding: 8em 2em;
       text-align: center;
       color: #fff;
 
@@ -102,7 +101,7 @@ hr {
           margin-top: 1em;
           letter-spacing: .05em;
 
-          img, svg {
+          img {
             height: 1em;
             margin: .3em 0 0;
 
@@ -166,7 +165,7 @@ hr {
     position: relative;
     z-index: 999;
 
-    img, svg {
+    img {
       height: 3em;
       vertical-align: baseline;
       transition: opacity .3s;
@@ -419,30 +418,28 @@ hr {
     border-color: rgba($lcm-gray, .2);
   }
 
-  .tmlogo {
-    .tmlogo-inner {
-      padding: 2em;
-      display: none;
+  .tmnaal {
+    .tmnaal-inner {
+      padding: 6em 2em 2em;
       text-align: center;
 
       @include media($medium-up) {
-        padding: 6em 2em 2em;
-        display: block;
+        padding: 6em 4em 2em;
       }
 
-      img, svg {
-        width: 400px;
-        max-width: 100%;
+      img {
+        width: 100%;
+        max-width: 860px;
       }
     }
   }
 
   .hashlcm {
     .hashlcm-inner {
-      padding: 4em 2em 2em;
+      padding: 2em;
 
       @include media($medium-up) {
-        padding: 2em 2em 4em;
+        padding: 4em 2em;
       }
     }
 
@@ -450,7 +447,7 @@ hr {
       text-align: center;
     }
 
-    img, svg {
+    img {
       width: 100%;
 
       @include media($medium-up) {
@@ -461,10 +458,10 @@ hr {
 
   .tracklist {
     .tracklist-inner {
-      padding: 0 2em 6em;
+      padding: 0 2em;
     }
 
-    img, svg {
+    img {
       display: block;
       margin: auto;
       width: 90%;
@@ -472,14 +469,6 @@ hr {
       @include media($medium-up) {
         width: 70%;
       }
-    }
-  }
-
-  .themuhibbain {
-    text-align: center;
-
-    img, svg {
-      width: 100%;
     }
   }
 
@@ -526,7 +515,7 @@ hr {
       margin-top: 1em;
       text-align: center;
 
-      img, svg {
+      img {
         width: 100%;
 
         @include media($medium-up) {
@@ -536,6 +525,20 @@ hr {
     }
   }
 }
+
+.themuhibbain {
+  margin: auto;
+  padding: 6em 1em 1em;
+
+  @include media($medium-up) {
+    width: 80%;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
 
 .footer {
   $footer-color: tint($base-font-color, 20);
@@ -551,7 +554,7 @@ hr {
 
   background: #fff;
 
-  padding: 2em 2em 6em;
+  padding: 3em 2em 6em;
   width: 100%;
   text-align: center;
 
@@ -566,12 +569,15 @@ hr {
 
     .footer-labels li {
       display: inline-block;
+      margin-right: .4em;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    img, svg {
+    img {
       vertical-align: middle;
-      // opacity: .5;
-      margin: 0 .2em;
       height: 2.8em;
       transition: opacity .3s;
     }
@@ -614,13 +620,13 @@ hr {
 
       @include media($large) {
         float: right;
-        margin-left: 1em;
+        margin-left: .8em;
       }
 
       li {
         display: inline-block;
         font-size: 1em;
-        padding-right: .5em;
+        padding-right: .2em;
         font-weight: 300;
         letter-spacing: .08em;
         line-height: 2;
@@ -641,7 +647,7 @@ hr {
         }
       }
 
-      img, svg {
+      img {
         // opacity: .5;
         height: 2em;
         padding: 1px;
