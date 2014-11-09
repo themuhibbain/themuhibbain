@@ -23,24 +23,24 @@ end
 
 # Paths
 # ----------------------------------------------
-set :css_dir, 'assets/css'
-set :js_dir, 'assets/js'
-set :images_dir, 'assets/img'
-set :partials_dir, 'partials'
-set :build_dir, '../themuhibbain.github.io'
+config[:css_dir] = 'assets/css'
+config[:js_dir] = 'assets/js'
+config[:images_dir] = 'assets/img'
+config[:partials_dir] = 'partials'
+config[:build_dir] = '../themuhibbain.github.io'
 
-set :trailing_slash, false
+config[:trailing_slash] = false
 
 # Page options, layouts, aliases and proxies
 # ----------------------------------------------
 # Proxies
 proxy '/README.md', '/README.txt', :layout => false
 # Ignores
-ignore '/README.txt'
+ignore '/README.md'
 ignore /^.*\.psd/
 
 # not using layout at all
-# set :layout, false
+# config[:layout] = false
 
 # Development-specific configuration
 # ----------------------------------------------
@@ -50,7 +50,7 @@ configure :development do
   # activate :asset_hash
   # activate :cache_buster
   # activate :minify_css
-  set :debug_assets, true
+  config[:debug_assets] = true
 end
 
 # Build-specific configuration
@@ -75,13 +75,13 @@ configure :build do
   activate :minify_javascript
 
   # Add asset fingerprinting to avoid cache issues
-  # activate :asset_hash
+  activate :asset_hash, :exts => %w(.css .js)
 
   # Enable cache buster
   activate :cache_buster
 
   # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  # config[:http_prefix] = "/Content/images/"
 
   # Compress PNGs after build (First: gem install middleman-smusher)
   # require "middleman-smusher"
