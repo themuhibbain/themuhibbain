@@ -28,11 +28,7 @@
 
 <%= yield %>
 
-    <script src="/assets/js/vendor.js"></script>
     <script src="/assets/js/main.js"></script>
-<% if current_page.data.js? then %>
-    <script src="/assets/js/<%= current_page.data.js %>.js"></script>
-<% end %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

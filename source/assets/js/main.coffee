@@ -1,9 +1,15 @@
+#= require "jquery"
+#= require "fastclick"
+#= require "picturefill"
+#= require "jquery-timeago"
+#= require "widowfix.js"
+
 # String extension: truncate
 String::trunc = (n, useWordBoundary) ->
-  toLong = @length > n
-  s_ = (if toLong then @substr(0, n - 1) else this)
-  s_ = (if useWordBoundary and toLong then s_.substr(0, s_.lastIndexOf(" ")) else s_)
-  (if toLong then s_ + "&hellip;" else s_)
+  tooLong = @length > n
+  s_ = (if tooLong then @substr(0, n - 1) else this)
+  s_ = (if useWordBoundary and tooLong then s_.substr(0, s_.lastIndexOf(" ")) else s_)
+  (if tooLong then s_ + "&hellip;" else s_)
 
 # String extension: trim
 String::trim = ->
@@ -50,36 +56,50 @@ $ ->
   # FastClick
   FastClick.attach document.body
 
+  # ====================================
+  # MAIN PAGE
   # Instagram
-  $.ajax
-    dataType: "jsonp"
-    url: "https://api.instagram.com/v1/users/470161390/media/recent"
-    data:
-      client_id: '18cab2f355964a2fa6238096fc94483b'
-      count: 9
+  if $('.instagram').length
+    $.ajax
+      dataType: "jsonp"
+      url: "https://api.instagram.com/v1/users/470161390/media/recent"
+      data:
+        client_id: '18cab2f355964a2fa6238096fc94483b'
+        count: 9
 
-    error: (response) ->
+      error: (response) ->
 
-    success: (response) ->
-      html = []
-      $.each response.data, (i, data) ->
-        caption = data.caption.text.replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "").trim()
-        # caption = caption.replace(/[@]+[A-Za-z0-9-_]+/g, "") # remove username
-        caption = caption.replace(/[#]+[A-Za-z0-9-_]+/g, "") # remove hashtag
-        caption = caption.trim().replace(/via\s*$/, "")
-        caption = "<div class='caption'><div class='caption-inner'>#{caption.trim().trunc(200, true)}</div></div>"
+      success: (response) ->
+        html = []
+        $.each response.data, (i, data) ->
+          caption = data.caption.text.replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "").trim()
+          # caption = caption.replace(/[@]+[A-Za-z0-9-_]+/g, "") # remove username
+          # caption = caption.replace(/[#]+[A-Za-z0-9-_]+/g, "") # remove hashtag
+          # caption = caption.trim().replace(/via\s*$/, "")
+          caption = "<div class='caption'><div class='caption-inner'>#{caption.trim().trunc(180, true)}</div></div>"
 
-        date = $.timeago(new Date(parseInt(data.created_time) * 1000).toISOString())
+          date = $.timeago(new Date(parseInt(data.created_time) * 1000).toISOString())
 
-        html.push """
-          <figure>
-            <img src="#{data.images.standard_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
-            <figcaption>
-              #{caption}
-              <div class="likes"><div class="likes-inner"><b>#{data.likes.count} likes</b> &middot; #{date}</div></div>
-              <a href="#{data.link}" target="_blank">View on Instagram</a>
-            </figcaption>
-          </figure>
-          """
+          html.push """
+            <figure>
+              <img src="#{data.images.standard_resolution.url}" class="thumb" alt="" data-filter='#{data.filter}'>
+              <figcaption>
+                #{caption}
+                <div class="likes"><div class="likes-inner"><b>#{data.likes.count} likes</b> &middot; #{date}</div></div>
+                <a href="#{data.link}" target="_blank">View on Instagram</a>
+              </figcaption>
+            </figure>
+            """
 
-      $('.instagram').html html.join("")
+        $('.instagram').html html.join("")
+
+
+  # ====================================
+  # PROFILE PAGE
+  # Profile page language
+  $(".lang-btn-en").click ->
+    $(".profile-outer").attr("lang", "en")
+  $(".lang-btn-ms").click ->
+    $(".profile-outer").attr("lang", "ms")
+
+  $("article h1, article h2, article p").widowFix()
