@@ -47,22 +47,29 @@ hr {
 
 .masthead {
   .hero {
-    .hero-logo img, .hero-logo svg {
-      width: 400px;
-      max-width: 100%;
-      margin-bottom: 6em;
+    .hero-logo {
+      @include media($medium-up) {
+        display: none;
+      }
+
+      img, svg {
+        width: 400px;
+        max-width: 100%;
+        margin-bottom: 1.5em;
+      }
     }
 
     .hero-inner {
       @include clearfix;
 
       background: $lcm-red;
-      padding: 6em 2em;
+      // padding: 6em 2em;
+      padding: 7em 2em;
       text-align: center;
       color: #fff;
 
       .hero-copy {
-        h1 {
+        h2 {
           margin-bottom: 2em;
           font-family: 'Raleway', $sans-serif;
           font-size: 1.8em;
@@ -295,16 +302,16 @@ hr {
       cursor: pointer;
       width: 50%;
 
-      &:last-child {
-        display: none;
-      }
+      // &:last-child {
+      //   display: none;
+      // }
 
       @include media($large) {
         width: 33.33%;
 
-        &:last-child {
-          display: block;
-        }
+        // &:last-child {
+        //   display: block;
+        // }
       }
 
       .thumb {
@@ -412,15 +419,30 @@ hr {
     border-color: rgba($lcm-gray, .2);
   }
 
-  .hashlcm {
-    .hashlcm-inner {
-      @include outer-container;
-      @include clearfix;
+  .tmlogo {
+    .tmlogo-inner {
       padding: 2em;
+      display: none;
+      text-align: center;
 
       @include media($medium-up) {
-        padding: 8em 2em 4em;
-        padding: 4em;
+        padding: 6em 2em 2em;
+        display: block;
+      }
+
+      img, svg {
+        width: 400px;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .hashlcm {
+    .hashlcm-inner {
+      padding: 4em 2em 2em;
+
+      @include media($medium-up) {
+        padding: 2em 2em 4em;
       }
     }
 
@@ -439,10 +461,7 @@ hr {
 
   .tracklist {
     .tracklist-inner {
-      @include outer-container;
-      @include clearfix;
-
-      padding: 0 2em 4em;
+      padding: 0 2em 6em;
     }
 
     img, svg {

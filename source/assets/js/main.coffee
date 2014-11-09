@@ -65,7 +65,7 @@ $ ->
       url: "https://api.instagram.com/v1/users/470161390/media/recent"
       data:
         client_id: '18cab2f355964a2fa6238096fc94483b'
-        count: 9
+        count: 6
 
       error: (response) ->
 
