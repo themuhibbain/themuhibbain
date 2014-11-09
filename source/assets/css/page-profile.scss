@@ -8,7 +8,7 @@
 $brown-dark: #1f1d1d;
 
 body {
-  background: $ch-white-1;
+  background: #fff;
   color: $ch-gray-1;
   font-weight: 300;
   margin: 0;
@@ -187,7 +187,7 @@ article {
     padding: 1em 1em 5em;
 
     @include media($medium-up) {
-      width: 70%;
+      width: 80%;
     }
 
     img {
@@ -211,7 +211,7 @@ article {
     padding: 1em;
 
     @include media($medium-up) {
-      width: 70%;
+      width: 80%;
     }
 
     a {
@@ -238,7 +238,7 @@ article {
   .content article {
     @include media($medium-up) {
       margin: auto;
-      width: 70%;
+      width: 80%;
     }
 
     padding: 1em;
@@ -246,19 +246,36 @@ article {
 }
 
 .profile-middle {
-  background-color:    $ch-white-1;
-  background-image:    url('bg/bg03.png'), url('bg/bg04.png'), url('bg/bg02.png');
-  background-repeat:   no-repeat,          no-repeat,          repeat;
-  background-size:     100% 15em,          100% 15em,          auto auto;
-  background-position: top center,         bottom center,      top left;
-  color: $ch-gray-1;
+  // background-color:    $ch-white-1;
+  // background-image:    url('bg/bg03.png'), url('bg/bg04.png'), url('bg/bg02.png');
+  // background-repeat:   no-repeat,          no-repeat,          repeat;
+  // background-size:     100% 15em,          100% 15em,          auto auto;
+  // background-position: top center,         bottom center,      top left;
+
+  background: url('bg/bg03.png') no-repeat top center;
+  background-size: 100% 15em;
+  color: #8d85a3;
 
   h3 {
-    color: $ch-green-1;
+    color: $ch-blue-1;
   }
 
   p.date {
     color: $ch-white-2;
+  }
+
+  img.tm-white {
+    display: block;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 3em;
+
+    @include media($medium-up) {
+      float: right;
+      width: 55%;
+      margin-left: 1em;
+      padding: 0;
+    }
   }
 }
 
@@ -271,7 +288,7 @@ article {
     margin-top: 1em;
   }
 
-  .themuhibbain-pic {
+  .themuhibbain-black {
     padding-top: 3em;
 
     img {
