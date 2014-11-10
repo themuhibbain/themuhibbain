@@ -84,7 +84,7 @@ article {
     font-size: 1.4em;
     font-weight: 300;
     line-height: 1.3em;
-    margin: 2em 0 1em;
+    margin: 1em 0;
     letter-spacing: .1em;
     text-transform: uppercase;
 
@@ -98,6 +98,8 @@ article {
   }
 
   p.date {
+    display: none;
+
     color: rgba($ch-white-1, .5);
     font-family: $serif;
     font-style: italic;
@@ -165,29 +167,30 @@ article {
 
 .profile-masthead {
   background-color: $brown-dark;
-  background-image: url(bg/bg01.png), url(../img/header_800.jpg);
+  background-image: url(bg/bg01.png), url(../img/profile-header-800.jpg);
   background-repeat: repeat, no-repeat;
   background-position: top left, center center;
   background-size: auto, cover;
-  padding: 6em 0 1em;
+  padding: 6em 0 3em;
   color: $ch-white-1;
 
   @include media($medium-up) {
-    background-image: url(bg/bg01.png), url(../img/header_1800.jpg);
-    padding-bottom: 3em;
+    background-image: url(bg/bg01.png), url(../img/profile-header-1800.jpg);
+    padding-bottom: 6em;
   }
 
   .logo-wrapper, .article-header {
     @include outer-container;
+    @include clearfix;
   }
 
   .logo {
-    margin: auto;
-    text-align: center;
     padding: 1em 1em 5em;
+    text-align: center;
 
     @include media($medium-up) {
-      width: 80%;
+      margin: auto;
+      width: 70%;
     }
 
     img {
@@ -207,11 +210,11 @@ article {
   }
 
   .article-header article {
-    margin: auto;
     padding: 1em;
 
     @include media($medium-up) {
-      width: 80%;
+      margin: auto;
+      width: 70%;
     }
 
     a {
@@ -223,28 +226,6 @@ article {
   }
 }
 
-.profile-middle, .profile-bottom {
-  padding: 1em 0;
-
-  @include media($medium-up) {
-    padding: 3em 0;
-  }
-
-  .content {
-    @include outer-container;
-    @include clearfix;
-  }
-
-  .content article {
-    @include media($medium-up) {
-      margin: auto;
-      width: 80%;
-    }
-
-    padding: 1em;
-  }
-}
-
 .profile-middle {
   // background-color:    $ch-white-1;
   // background-image:    url('bg/bg03.png'), url('bg/bg04.png'), url('bg/bg02.png');
@@ -252,9 +233,39 @@ article {
   // background-size:     100% 15em,          100% 15em,          auto auto;
   // background-position: top center,         bottom center,      top left;
 
-  background: url('bg/bg03.png') no-repeat top center;
-  background-size: 100% 15em;
   color: #8d85a3;
+  position: relative;
+
+  @include outer-container;
+  @include clearfix;
+
+  .bg {
+    @include span-columns(3 of 12);
+    position: relative;
+    height: 1000px;
+
+    @include media($small) {
+      display: none;
+    }
+
+    .bg-inner {
+      background: url(/assets/img/profile-bg-1.jpg) no-repeat center right;
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 1800px;
+    }
+  }
+
+  .content {
+    @include span-columns(9 of 12);
+    padding: 6em 1em 3em;
+
+    @include media($small) {
+      @include span-columns(12 of 12);
+    }
+  }
 
   h3 {
     color: $ch-blue-1;
@@ -272,7 +283,7 @@ article {
 
     @include media($medium-up) {
       float: right;
-      width: 55%;
+      width: 50%;
       margin-left: 1em;
       padding: 0;
     }
@@ -284,8 +295,18 @@ article {
   color: $ch-white-2;
   padding-bottom: 0;
 
-  h3 {
-    margin-top: 1em;
+  .content {
+    @include outer-container;
+    @include clearfix;
+
+    article {
+      padding: 6em 1em 1em;
+
+      @include media($medium-up) {
+        margin: auto;
+        width: 70%;
+      }
+    }
   }
 
   .themuhibbain-black {

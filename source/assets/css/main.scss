@@ -412,26 +412,15 @@ hr {
 
 .albuminfo {
   background: #fff;
+  padding-top: 4em;
+
+  @include media($medium-up) {
+    padding-top: 7em;
+  }
 
   hr {
     border-width: 4px;
     border-color: rgba($lcm-gray, .2);
-  }
-
-  .tmnaal {
-    .tmnaal-inner {
-      padding: 6em 2em 2em;
-      text-align: center;
-
-      @include media($medium-up) {
-        padding: 6em 4em 2em;
-      }
-
-      img {
-        width: 100%;
-        max-width: 860px;
-      }
-    }
   }
 
   .hashlcm {
@@ -473,6 +462,8 @@ hr {
   }
 
   .promo {
+    display: none;
+
     padding: 4em 2em 0;
     text-align: center;
 
@@ -524,18 +515,37 @@ hr {
       }
     }
   }
+
+  .tmnaal {
+    .tmnaal-inner {
+      padding: 6em 2em 0;
+      text-align: center;
+
+      @include media($medium-up) {
+        // padding: 6em 4em 2em;
+      }
+
+      img {
+        width: 80%;
+        max-width: 480px;
+      }
+    }
+  }
 }
 
 .themuhibbain {
-  margin: auto;
-  padding: 6em 1em 1em;
+  .themuhibbain-inner {
+    padding: 5em 1em 0;
+    text-align: center;
 
-  @include media($medium-up) {
-    width: 80%;
-  }
+    img {
+      width: 100%;
+      max-width: 1280px;
 
-  img {
-    width: 100%;
+      @include media($medium-up) {
+        width: 80%;
+      }
+    }
   }
 }
 
