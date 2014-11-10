@@ -32,10 +32,6 @@ config[:trailing_slash] = false
 
 # Page options, layouts, aliases and proxies
 # ----------------------------------------------
-# Proxies
-proxy '/README.md', '/README.txt', :layout => false
-# Ignores
-ignore '/README.md'
 ignore /^.*\.psd/
 
 # not using layout at all
