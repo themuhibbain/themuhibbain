@@ -1,4 +1,4 @@
 themuhibbain
 ============
 
-Site source of The Muhibbain. A duo artiste under [Madrasah Mahabbah](http://madrasahmahabbah.com).
+Site source of [themuhibbain.com](http://themuhibbain.com). A duo artiste under [Madrasah Mahabbah](http://madrasahmahabbah.com).
