@@ -94,6 +94,31 @@ $ ->
         $('.instagram').html html.join("")
 
 
+  # f_page = "The-Muhibbains"
+  # t_page = "Muhibbain"
+
+  # $.getJSON "https://graph.facebook.com/" + f_page + "?callback=?", (data) ->
+  #   fb_count = data["likes"].toString()
+  #   fb_count = add_commas(fb_count)
+  #   $("#fb_count").html fb_count
+
+  # $.getJSON "http://api.twitter.com/1/users/show.json?screen_name=" + t_page + "&callback=?", (data) ->
+  #   twit_count = data["followers_count"].toString()
+  #   twit_count = add_commas(twit_count)
+  #   $("#twitter_count").html twit_count
+
+  # $.ajax
+  #   type: "GET"
+  #   dataType: "jsonp"
+  #   url: "https://api.instagram.com/v1/users/470161390"
+  #   success: (data) ->
+  #     ig_count = data.data.counts.followed_by.toString()
+  #     ig_count = add_commas(ig_count)
+  #     $(".instagram_count").html ig_count
+  #     return
+
+
+
   # ====================================
   # PROFILE PAGE
   # Profile page language
@@ -102,4 +127,4 @@ $ ->
   $(".lang-btn-ms").click ->
     $(".profile-outer").attr("lang", "ms")
 
-  $("article h1, article h2, article p").widowFix()
+  $("article h1, article h2, article p, blockquote p").widowFix()

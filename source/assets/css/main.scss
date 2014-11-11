@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import "//fonts.googleapis.com/css?family=Oswald:300,400,700|Raleway:300";
+@import "//fonts.googleapis.com/css?family=Oswald:300,400|Raleway:300,600,700|Lato:300italic,400,400italic";
 
 @import "base";
 
@@ -24,7 +24,7 @@ body {
 
 hr {
   border-bottom: 2px solid tint($base-font-color, 20);
-  width: 40%;
+  width: 30%;
   margin: 1.5em auto;
 }
 
@@ -63,7 +63,7 @@ hr {
       @include clearfix;
 
       background: $lcm-red;
-      padding: 8em 2em;
+      padding: 8em 1em;
       text-align: center;
       color: #fff;
 
@@ -181,88 +181,88 @@ hr {
         fill: $lcm-darkblue;
       }
     }
-  }
 
-  /* Trigger text */
+    /* Trigger text */
 
-  .tooltip-item {
-    cursor: pointer;
-    display: inline-block;
-  }
+    .tooltip-item {
+      cursor: pointer;
+      display: inline-block;
+    }
 
-  /* Gap filler */
+    /* Gap filler */
 
-  .tooltip-item::after {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 20px;
-    top: 110%;
-    left: 50%;
-    pointer-events: none;
-    transform: translate3d(-50%,-100%,0);
-  }
+    .tooltip-item::after {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 20px;
+      top: 110%;
+      left: 50%;
+      pointer-events: none;
+      transform: translate3d(-50%,-100%,0);
+    }
 
-  .tooltip:hover .tooltip-item::after {
-    pointer-events: auto;
-  }
+    &:hover .tooltip-item::after {
+      pointer-events: auto;
+    }
 
-  /* Tooltip */
+    /* Tooltip */
 
-  .tooltip-content {
-    @include clearfix;
-    position: absolute;
-    z-index: 9999;
-    width: 120px;
-    left: 50%;
-    margin: 0 0 20px -60px;
-    top: 110%;
-    font-size: 1rem;
-    letter-spacing: 0;
-    text-align: center;
-    // box-shadow: -3px -3px 15px rgba(#000, 0.1);
-    background: $lcm-darkblue;
-    border-radius: 2px;
-    opacity: 0;
-    cursor: default;
-    pointer-events: none;
+    .tooltip-content {
+      @include clearfix;
+      position: absolute;
+      z-index: 9999;
+      width: 120px;
+      left: 50%;
+      margin: 0 0 20px -60px;
+      top: 110%;
+      font-size: 1rem;
+      letter-spacing: 0;
+      text-align: center;
+      // box-shadow: -3px -3px 15px rgba(#000, 0.1);
+      background: $lcm-darkblue;
+      border-radius: 2px;
+      opacity: 0;
+      cursor: default;
+      pointer-events: none;
 
-    transform: translate3d(0,10px,0) rotate3d(1,1,0,50deg);
-    transition: opacity 0.3s, transform 0.3s;
-  }
+      transform: translate3d(0,10px,0) rotate3d(1,1,0,50deg);
+      transition: opacity 0.3s, transform 0.3s;
+    }
 
-  .tooltip:hover .tooltip-content {
-    pointer-events: auto;
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
-    transform: translate3d(0,0,0) rotate3d(0,0,0,0);
-  }
+    &:hover .tooltip-content {
+      pointer-events: auto;
+      opacity: 1;
+      -webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+      transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+    }
 
-  /* Arrow */
+    /* Arrow */
 
-  .tooltip-content::before {
-    content: '';
-    top: 0;
-    left: 50%;
-    border: solid transparent;
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: transparent;
-    border-bottom-color: $lcm-darkblue;
-    border-width: 10px;
-    margin-left: -10px;
-    transform: translate3d(0,-100%,0);
-  }
+    .tooltip-content::before {
+      content: '';
+      top: 0;
+      left: 50%;
+      border: solid transparent;
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: transparent;
+      border-bottom-color: $lcm-darkblue;
+      border-width: 10px;
+      margin-left: -10px;
+      transform: translate3d(0,-100%,0);
+    }
 
-  /* Tooltip content*/
+    /* Tooltip content*/
 
-  .tooltip-text {
-    font-size: 1em;
-    line-height: 1;
-    display: block;
-    padding: .5em;
+    .tooltip-text {
+      font-size: 1em;
+      line-height: 1;
+      display: block;
+      padding: .5em;
+    }
   }
 
   .video {
@@ -294,23 +294,15 @@ hr {
       position: relative;
       margin: 0;
       padding: 0;
-      // background: $lcm-gray;
+      background: $lcm-red;
       float: left;
       overflow: hidden;
       text-align: center;
       cursor: pointer;
       width: 50%;
 
-      // &:last-child {
-      //   display: none;
-      // }
-
       @include media($large) {
         width: 33.33%;
-
-        // &:last-child {
-        //   display: block;
-        // }
       }
 
       .thumb {
@@ -415,12 +407,109 @@ hr {
   padding-top: 4em;
 
   @include media($medium-up) {
-    padding-top: 7em;
+    padding-top: 8em;
   }
 
   hr {
     border-width: 4px;
-    border-color: rgba($lcm-gray, .2);
+    border-color: rgba($ch-gray-1, .5);
+  }
+
+  .quotes {
+    background: url(../img/tm-naal-red-480.jpg) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    margin: 1em 1em 4em;
+
+    .quotes-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: rgba(#fff, .7);
+    }
+
+    .quotes-inner {
+      position: relative;
+      z-index: 100;
+
+      h3 {
+        margin-bottom: 1.5em;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-weight: 300;
+
+        span {
+          font-weight: 600;
+          color: $lcm-red;
+        }
+      }
+
+      .content {
+        margin: auto;
+        width: 100%;
+
+        @include media($medium-up) {
+          width: 80%;
+        }
+
+        .quote {
+          blockquote {
+            @include clearfix;
+            background: rgba($ch-gray-1, .8);
+            color: #fff;
+            margin: 1em 0;
+            padding: 0;
+            border: none;
+            font-family: 'Lato', $sans-serif;
+            font-size: .9em;
+            font-style: italic;
+            line-height: 1.2;
+            border-radius: 2px;
+            overflow: hidden;
+            // text-shadow: 1px 1px 1px rgba(#fff, .9);
+
+            p {
+              // width: 70%;
+              // float: left;
+              margin: 0;
+              padding: 1em;
+            }
+
+            .source {
+              float: left;
+              width: 100px;
+              margin-right: 1em;
+              padding: 1em;
+              background: rgba($ch-gray-1, .9);
+              color: #fff;
+              // min-height: 105px;
+              text-align: center;
+              font-family: $sans-serif;
+              font-size: .7em;
+              font-weight: 300;
+              font-style: normal;
+              text-transform: uppercase;
+
+              img {
+                width: 60px;
+                display: block;
+                margin: auto;
+                background: #fff;
+                border: 2px solid #fff;
+                border-radius: 50%;
+                // padding: 3px;
+              }
+              span {
+                display: block;
+                margin-top: .5em;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   .hashlcm {
@@ -438,6 +527,7 @@ hr {
 
     img {
       width: 100%;
+      max-width: 480px;
 
       @include media($medium-up) {
         width: 80%;
@@ -454,6 +544,7 @@ hr {
       display: block;
       margin: auto;
       width: 90%;
+      max-width: 480px;
 
       @include media($medium-up) {
         width: 70%;
@@ -521,10 +612,6 @@ hr {
       padding: 6em 2em 0;
       text-align: center;
 
-      @include media($medium-up) {
-        // padding: 6em 4em 2em;
-      }
-
       img {
         width: 80%;
         max-width: 480px;
@@ -548,7 +635,6 @@ hr {
     }
   }
 }
-
 
 .footer {
   $footer-color: tint($base-font-color, 20);
