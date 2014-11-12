@@ -2,6 +2,7 @@
 #= require "fastclick"
 #= require "picturefill"
 #= require "jquery-timeago"
+#= require "slick-carousel"
 #= require "_widowfix.js"
 
 # String extension: truncate
@@ -59,12 +60,16 @@ $ ->
   # ====================================
   # MAIN PAGE
   # Instagram
-  if $('.instagram').length
+
+  if $('.instagramfeed').length
+    iuid = "470161390"
+    icid = "18cab2f355964a2fa6238096fc94483b"
+    iact = "470161390.5b9e1e6.9db999fd40e54c4b8966bfb5f7c2b105"
     $.ajax
       dataType: "jsonp"
       url: "https://api.instagram.com/v1/users/470161390/media/recent"
       data:
-        client_id: '18cab2f355964a2fa6238096fc94483b'
+        client_id: icid
         count: 6
 
       error: (response) ->
@@ -91,22 +96,20 @@ $ ->
             </figure>
             """
 
-        $('.instagram').html html.join("")
+        $('.instagramfeed').html html.join("")
 
 
-  # f_page = "The-Muhibbains"
-  # t_page = "Muhibbain"
+  $.getJSON "https://graph.facebook.com/279680398756012?callback=?", (data) ->
+    $(".social.facebook > span").html "#{data.likes} likes"
 
-  # $.getJSON "https://graph.facebook.com/" + f_page + "?callback=?", (data) ->
-  #   fb_count = data["likes"].toString()
-  #   fb_count = add_commas(fb_count)
-  #   $("#fb_count").html fb_count
+  $.getJSON "https://api.instagram.com/v1/users/#{iuid}/?access_token=#{iact}&callback=?", (data) ->
+    $(".social.instagram > span").html "#{data.data.counts.followed_by} followers"
 
-  # $.getJSON "http://api.twitter.com/1/users/show.json?screen_name=" + t_page + "&callback=?", (data) ->
-  #   twit_count = data["followers_count"].toString()
-  #   twit_count = add_commas(twit_count)
-  #   $("#twitter_count").html twit_count
+  # $.getJSON "https://api.twitter.com/1.1/users/show.json?screen_name=Muhibbain&callback=?", (data) ->
+  #   $(".social.youtube > span").html "#{data.entry.yt$statistics.subscriberCount} subscribers"
 
+  $.getJSON "http://gdata.youtube.com/feeds/api/users/TheMuhibbains?alt=json&callback=?", (data) ->
+    $(".social.youtube > span").html "#{data.entry.yt$statistics.subscriberCount} subscribers"
   # $.ajax
   #   type: "GET"
   #   dataType: "jsonp"
@@ -117,6 +120,14 @@ $ ->
   #     $(".instagram_count").html ig_count
   #     return
 
+  # Quotes
+  $('.quotes-content').slick
+    dots: true
+    infinite: true
+    autoplay: true
+    autoplaySpeed: 10000
+    arrows: false
+    # adaptiveHeight: true
 
 
   # ====================================

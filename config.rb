@@ -26,6 +26,7 @@ end
 config[:css_dir] = 'assets/css'
 config[:js_dir] = 'assets/js'
 config[:images_dir] = 'assets/img'
+config[:fonts_dir] = 'assets/fonts'
 config[:partials_dir] = 'partials'
 config[:build_dir] = '../themuhibbain.github.io'
 config[:trailing_slash] = false
