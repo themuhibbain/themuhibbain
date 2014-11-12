@@ -445,7 +445,7 @@ hr {
       }
 
       .social {
-        padding: .75em 1em;
+        padding: 2em 1em;
         color: #fff;
         line-height: 1;
         border-radius: 0;
@@ -455,10 +455,18 @@ hr {
         display: block;
         float: left;
         width: 33.33%;
-        line-height: 4em;
 
         i.fa {
           margin-right: .75em;
+        }
+
+        em {
+          font-style: normal;
+          display: none;
+
+          @include media($medium-up) {
+            display: inline;
+          }
         }
 
         &.facebook { background: #3b5998; }
