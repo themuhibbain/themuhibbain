@@ -100,16 +100,16 @@ $ ->
 
 
   $.getJSON "https://graph.facebook.com/279680398756012?callback=?", (data) ->
-    $(".social.facebook > span").html "#{data.likes} <em>likes</em>"
+    $(".facebook-count").html "#{data.likes} <em>likes</em>"
 
   $.getJSON "https://api.instagram.com/v1/users/#{iuid}/?access_token=#{iact}&callback=?", (data) ->
-    $(".social.instagram > span").html "#{data.data.counts.followed_by} <em>followers</em>"
+    $(".instagram-count").html "#{data.data.counts.followed_by} <em>followers</em>"
 
   # $.getJSON "https://api.twitter.com/1.1/users/show.json?screen_name=Muhibbain&callback=?", (data) ->
-  #   $(".social.youtube > span").html "#{data.entry.yt$statistics.subscriberCount} subscribers"
+  #   $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} subscribers"
 
   $.getJSON "http://gdata.youtube.com/feeds/api/users/TheMuhibbains?alt=json&callback=?", (data) ->
-    $(".social.youtube > span").html "#{data.entry.yt$statistics.subscriberCount} <em>subscribers</em>"
+    $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} <em>subscribers</em>"
   # $.ajax
   #   type: "GET"
   #   dataType: "jsonp"
