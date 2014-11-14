@@ -8,6 +8,7 @@ header {
 
   .col {
     @include span-columns(6 of 12, block-collapse);
+    position: relative;
   }
 
   h1 {
@@ -61,6 +62,12 @@ header {
     letter-spacing: .2em;
     text-transform: uppercase;
     padding: 22px 10px;
+  }
+
+  .social-plugins {
+    margin-top: 20px;
+    margin-right: .5em;
+    float: right;
   }
 }
 

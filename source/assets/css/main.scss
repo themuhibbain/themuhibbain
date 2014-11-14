@@ -843,3 +843,13 @@ hr {
     }
   }
 }
+
+.social-plugins {
+  margin-top: 1em;
+  .fb_iframe_widget {
+    margin-right: .75em;
+  }
+  .fb_iframe_widget span {
+    display: block;
+  }
+}
