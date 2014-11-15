@@ -3,6 +3,7 @@
 #= require "picturefill"
 #= require "jquery-timeago"
 #= require "slick-carousel"
+#= require "jquery-waypoints"
 #= require "_widowfix.js"
 
 # String extension: truncate
@@ -99,17 +100,18 @@ $ ->
         $('.instagramfeed').html html.join("")
 
 
-  $.getJSON "https://graph.facebook.com/279680398756012?callback=?", (data) ->
-    $(".facebook-count").html "#{data.likes} <em>likes</em>"
+  if $(".facebook-count").length
+    $.getJSON "https://graph.facebook.com/279680398756012?callback=?", (data) ->
+      $(".facebook-count").html "#{data.likes} <em>likes</em>"
 
-  $.getJSON "https://api.instagram.com/v1/users/#{iuid}/?access_token=#{iact}&callback=?", (data) ->
-    $(".instagram-count").html "#{data.data.counts.followed_by} <em>followers</em>"
+  if $(".instagram-count").length
+    $.getJSON "https://api.instagram.com/v1/users/#{iuid}/?access_token=#{iact}&callback=?", (data) ->
+      $(".instagram-count").html "#{data.data.counts.followed_by} <em>followers</em>"
 
-  # $.getJSON "https://api.twitter.com/1.1/users/show.json?screen_name=Muhibbain&callback=?", (data) ->
-  #   $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} subscribers"
+  if $(".youtube-count").length
+    $.getJSON "http://gdata.youtube.com/feeds/api/users/TheMuhibbains?alt=json&callback=?", (data) ->
+      $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} <em>subscribers</em>"
 
-  $.getJSON "http://gdata.youtube.com/feeds/api/users/TheMuhibbains?alt=json&callback=?", (data) ->
-    $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} <em>subscribers</em>"
   # $.ajax
   #   type: "GET"
   #   dataType: "jsonp"
@@ -132,6 +134,10 @@ $ ->
 
   # ====================================
   # PROFILE PAGE
+  # Top Logo
+  $('.profile-middle').waypoint ($dir) ->
+    $('.toplogo')[if $dir is 'down' then 'addClass' else 'removeClass']('visible')
+
   # Profile page language
   $(".lang-btn-en").click ->
     $(".profile-outer").attr("lang", "en")
@@ -139,3 +145,14 @@ $ ->
     $(".profile-outer").attr("lang", "ms")
 
   $("article h1, article h2, article p, blockquote p").widowFix()
+
+
+  $("a[href*=#]:not([href=#])").click ->
+    if location.pathname.replace(/^\//, "") is @pathname.replace(/^\//, "") and location.hostname is @hostname
+      target = $(@hash)
+      target = (if target.length then target else $("[name=" + @hash.slice(1) + "]"))
+      if target.length
+        $("html,body").animate
+          scrollTop: target.offset().top
+        , 500
+        false

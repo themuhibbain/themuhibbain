@@ -1,6 +1,7 @@
 @charset "utf-8";
 
-@import "//fonts.googleapis.com/css?family=Oswald:300,400|Raleway:300";
+// @import "//fonts.googleapis.com/css?family=Oswald:300,400|Raleway:300|Roboto+Condensed:400,300,700";
+@import "//fonts.googleapis.com/css?family=Raleway:300|Roboto+Condensed:400,300,700";
 
 @import "base";
 @import "slick-carousel/slick/slick";
@@ -29,7 +30,7 @@ hr {
   margin: 1.5em auto;
 }
 
-.hide {
+.hidden {
   display: none;
 }
 
@@ -56,7 +57,7 @@ hr {
     position: relative;
     background: #fff url(../img/themuhibbain-bw-1280.jpg) no-repeat center center;
     background-size: cover;
-    padding: 14em 1em 6em;
+    padding: 14em 2em 6em;
     text-align: center;
     color: #fff;
 
@@ -112,7 +113,6 @@ hr {
         }
 
         p {
-          font-weight: 100;
           font-size: 1.2em;
           line-height: 1.2;
           margin-top: 1em;
@@ -141,7 +141,7 @@ hr {
             text-transform: uppercase;
             font-size: .75em;
             font-weight: 300;
-            padding: .3em .5em .15em;
+            padding: .2em .6em .15em;
             white-space: nowrap;
             // line-height: 1;
 
@@ -529,7 +529,7 @@ hr {
         text-transform: uppercase;
 
         border-radius: 5px;
-        padding: .5em .8em;
+        padding: .4em .8em;
         letter-spacing: .1em;
         background: $lcm-red;
         color: #fff;

@@ -42,7 +42,7 @@ ignore /^.*\.psd/
 # ----------------------------------------------
 configure :development do
   activate :directory_indexes
-  # activate :minify_html
+  activate :minify_html
   # activate :asset_hash
   # activate :cache_buster
   # activate :minify_css

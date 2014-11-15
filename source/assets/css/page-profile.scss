@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-// @import "//fonts.googleapis.com/css?family=Questrial|Sanchez:400italic,400|Raleway:300,500";
-@import "//fonts.googleapis.com/css?family=Raleway:300,500";
-
 @import "base";
 
 $brown-dark: #1f1d1d;
@@ -20,6 +17,64 @@ body {
 button {
   outline: none;
   transition: background .3s;
+}
+
+header.toplogo {
+  position: fixed;
+  // top: 15px;
+  z-index: 2000;
+
+  transform: translateX(-100%);
+  transition: transform .3s;
+
+  &.visible {
+    transform: translateX(0);
+
+  }
+
+  nav {
+    width: 100%;
+    height: 100%;
+  }
+
+  a.top-logo {
+    position: relative;
+    display: block;
+    float: left;
+    padding: 10px;
+    width: 120px;
+    height: 120px;
+    background: $lcm-red;
+
+    img {
+      width: 100%;
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) rotate(-10deg);
+      transition: transform .3s $easeOutBack;
+
+      &:hover {
+        transform: translateY(-50%) rotate(0);
+      }
+
+    }
+  }
+
+  a.top {
+    position: relative;
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    margin: 10px;
+    background: #fff;
+    // border-radius: 5px;
+    color: $lcm-red;
+
+    &:hover {
+      // color
+    }
+  }
 }
 
 article {
@@ -59,14 +114,14 @@ article {
   }
 
   h1 {
-    color: $ch-green-1;
+    color: $ch-white-1;
     font-family: $serif;
     font-size: 2em;
-    font-weight: 500;
+    font-weight: 300;
     margin-bottom: .5em;
 
     @include media($medium-up) {
-      font-size: 2.6em;
+      font-size: 3.5em;
     }
   }
 

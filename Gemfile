@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 gem 'unicorn', '~> 4.8.3'
 
 # Middleman Gems
-gem 'middleman', '3.3.6'
+gem 'middleman', '~> 3.3.6'
 gem 'middleman-smusher', '~> 3.0.0'
 gem 'middleman-livereload', '~> 3.3.4'
 gem 'middleman-imageoptim', '~> 0.1.4'
@@ -23,6 +23,6 @@ gem 'sass', '~> 3.4.5'
 # image
 gem "fastimage"
 
-gem 'therubyracer' # faster JS compiles
-gem 'oj' # faster JS compiles
+# gem 'therubyracer' # faster JS compiles
+# gem 'oj' # faster JS compiles
 gem 'uglifier'
