@@ -45,6 +45,7 @@ header.toplogo {
     width: 120px;
     height: 120px;
     background: $lcm-red;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -52,12 +53,11 @@ header.toplogo {
       position: relative;
       top: 50%;
       transform: translateY(-50%) rotate(-10deg);
-      transition: transform .3s $easeOutBack;
+      transition: all .3s;
+    }
 
-      &:hover {
-        transform: translateY(-50%) rotate(0);
-      }
-
+    &:hover img {
+      transform: translateY(-50%) rotate(0);
     }
   }
 
@@ -68,11 +68,12 @@ header.toplogo {
     padding: 5px 10px;
     margin: 10px;
     background: #fff;
-    // border-radius: 5px;
     color: $lcm-red;
+    transition: all .3s;
 
     &:hover {
-      // color
+      background: $lcm-red;
+      color: #fff;
     }
   }
 }

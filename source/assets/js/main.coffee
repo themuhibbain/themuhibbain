@@ -129,7 +129,15 @@ $ ->
     autoplay: true
     autoplaySpeed: 10000
     arrows: false
-    # adaptiveHeight: true
+
+  # InstaQuotes
+  $('.instaquote-content').slick
+    dots: true
+    infinite: true
+    autoplay: true
+    autoplaySpeed: 5000
+    arrows: false
+    speed: 1000
 
 
   # ====================================

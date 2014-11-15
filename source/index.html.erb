@@ -148,15 +148,8 @@ title: "#LoveCintaMahabbah"
               </blockquote>
             </div>
           </div>
-
         </div>
-      </div>
-
-      <div class="hashlcm">
-        <div class="hashlcm-inner">
-          <h2><img src="/assets/img/logo-lcm.svg" alt="#LoveCintaMahabbah"></h2>
-        </div>
-      </div><!-- /.hashlcm -->
+      </div><!-- /.quotes -->
 
       <div class="tracklist">
         <div class="tracklist-layer">
@@ -165,6 +158,16 @@ title: "#LoveCintaMahabbah"
           </div>
         </div>
       </div><!-- /.tracklist -->
+
+      <div class="instaquote">
+        <div class="instaquote-inner">
+          <div class="instaquote-content">
+<% (1..10).each do |index| %>
+            <div><img src="/assets/img/insta-<%= index.to_s.rjust(2, "0") %>.svg" alt=""></div>
+<% end %>
+          </div>
+        </div>
+      </div><!-- /.instaquote -->
 
       <!-- <div class="spotify">
         <div class="spotify-inner">

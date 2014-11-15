@@ -67,7 +67,7 @@ hr {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(saturate(shade($lcm-red, 30), 20), .85);
+      background: rgba(saturate(shade($lcm-red, 20), 20), .88);
       z-index: 0;
     }
 
@@ -469,7 +469,7 @@ hr {
   overflow: hidden;
 
   @include media($medium-up) {
-    padding-top: 8em;
+    padding-top: 6em;
   }
 
   hr {
@@ -481,20 +481,14 @@ hr {
     position: relative;
 
     @include media($medium-up) {
-      margin: 0 1em 4em;
-    }
-
-    .slick-prev:before, .slick-next:before {
-      color: $lcm-gray;
+      margin: 0 2em 6em;
     }
 
     .quotes-inner {
       position: relative;
-      z-index: 100;
       background: $ch-white-1;
       padding: 3em 0 2.5em;
       border-radius: 0;
-      // box-shadow: 0 4px 0 shade($ch-white-1, 10);
       font-size: .9em;
       margin: auto;
       overflow: hidden;
@@ -598,32 +592,9 @@ hr {
     }
   }
 
-  .hashlcm {
-    .hashlcm-inner {
-      padding: 4em 2em 2em;
-
-      @include media($medium-up) {
-        padding: 4em 2em;
-      }
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    img {
-      width: 100%;
-      max-width: 520px;
-
-      @include media($medium-up) {
-        width: 90%;
-      }
-    }
-  }
-
   .tracklist {
     .tracklist-inner {
-      padding: 0 2em;
+      margin: 6em 2em 2em;
     }
 
     img {
@@ -634,6 +605,32 @@ hr {
 
       @include media($medium-up) {
         width: 80%;
+      }
+    }
+  }
+
+  .instaquote {
+    position: relative;
+
+    @include media($medium-up) {
+      margin: 2em 2em;
+    }
+
+    .slick-prev:before, .slick-next:before {
+      color: $lcm-gray;
+    }
+
+    .instaquote-inner {
+      position: relative;
+      margin: auto;
+
+      @include media($medium-up) {
+        max-width: 520px;
+        border-radius: 5px;
+        font-size: 1em;
+      }
+
+      img {
       }
     }
   }
@@ -712,7 +709,7 @@ hr {
   .themuhibbain-inner {
     @include span-columns(12);
 
-    padding: 5em 1em 0;
+    padding: 6em 1em 0;
     text-align: center;
 
     img {
