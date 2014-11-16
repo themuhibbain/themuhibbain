@@ -141,7 +141,6 @@ $ ->
     speed: 1000
 
 
-
   # ====================================
   # PROFILE PAGE
   # Top Logo
@@ -152,14 +151,16 @@ $ ->
   en_el = $('h1:lang(en), h2:lang(en), h3:lang(en), p:lang(en), button:lang(en)')
   ms_el = $('h1:lang(ms), h2:lang(ms), h3:lang(ms), p:lang(ms), button:lang(ms)')
 
+  $('body.profile').addClass('lang--en')
   $('.lang-btn-en').click ->
-    $('.profile-outer').attr('lang', 'en')
+    $('body.profile').removeClass('lang--en lang--ms').addClass('lang--en')
   $(".lang-btn-ms").click ->
-    $('.profile-outer').attr('lang', 'ms')
+    $('body.profile').removeClass('lang--en lang--ms').addClass('lang--ms')
 
-  $("article h1, article h2, article p, blockquote p").widowFix()
+  # Widow fix
+  $("article p, blockquote p").widowFix()
 
-
+  # Smooth scroll
   $("a[href*=#]:not([href=#])").click ->
     if location.pathname.replace(/^\//, "") is @pathname.replace(/^\//, "") and location.hostname is @hostname
       target = $(@hash)

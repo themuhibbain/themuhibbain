@@ -10,16 +10,12 @@ $max-width: em(1000);
 $medium-screen: em(640);
 $large-screen: em(860);
 
-$large-screen-up: new-breakpoint(min-width $large-screen 12);
-$medium-screen-up: new-breakpoint(min-width $medium-screen 8);
-$small-screen-only: new-breakpoint(max-width $medium-screen 4);
-
-$tablet: new-breakpoint(max-width 768px 8);
-$mobile: new-breakpoint(max-width 480px 4);
+$large-up: new-breakpoint(min-width $large-screen 12);
+$medium-up: new-breakpoint(min-width $medium-screen 8);
+$small-screen: new-breakpoint(max-width ($medium-screen - 1) 4);
+$short: new-breakpoint(min-height em(900) 12);
 
 // shortcuts
-$medium-up: $medium-screen-up;
-$large-up: $large-screen-up;
-$small: $small-screen-only;
+$small: $small-screen;
 $large: $large-screen;
 $medium: $medium-screen;
