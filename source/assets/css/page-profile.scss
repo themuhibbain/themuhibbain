@@ -95,16 +95,6 @@ article {
     margin-top: 0;
   }
 
-  .type {
-    border-bottom: 1px solid;
-    font-size: .7em;
-    font-weight: 300;
-    letter-spacing: .05em;
-    padding: .3em 0;
-    float: left;
-    text-transform: uppercase;
-  }
-
   .lang-btn {
     font-size: .7em;
     font-weight: 300;
@@ -126,7 +116,7 @@ article {
     }
   }
 
-  h2 {
+  h2, p.lead {
     font-family: $serif;
     // font-style: italic;
     font-size: 1.3em;
@@ -156,16 +146,6 @@ article {
     img {
       height: 1em;
     }
-  }
-
-  p.date {
-    display: none;
-
-    color: rgba($ch-white-1, .5);
-    font-family: $serif;
-    font-style: italic;
-    font-size: .9em;
-    // margin-bottom: .3em;
   }
 
   p {
@@ -301,7 +281,7 @@ article {
   @include clearfix;
 
   .bg {
-    @include span-columns(3 of 12);
+    @include span-columns(3 of 12, block-collapse);
     position: relative;
     height: 1000px;
 
@@ -320,11 +300,14 @@ article {
   }
 
   .content {
-    @include span-columns(9 of 12);
-    padding: 6em 1em 3em;
+    @include span-columns(9 of 12, block-collapse);
+    padding: 6em 2em 3em;
+    background: #fff;
+    height: 1000px;
 
     @include media($small) {
-      @include span-columns(12 of 12);
+      @include span-columns(12 of 12, block-collapse);
+      padding: 6em 1em 3em;
     }
   }
 
@@ -355,6 +338,7 @@ article {
   background: $brown-dark;
   color: $ch-white-2;
   padding-bottom: 0;
+  overflow: hidden;
 
   .content {
     @include outer-container;

@@ -4,6 +4,7 @@
 #= require "jquery-timeago"
 #= require "slick-carousel"
 #= require "jquery-waypoints"
+#= require "scrollme"
 #= require "_widowfix.js"
 
 # String extension: truncate
@@ -140,6 +141,7 @@ $ ->
     speed: 1000
 
 
+
   # ====================================
   # PROFILE PAGE
   # Top Logo
@@ -147,10 +149,13 @@ $ ->
     $('.toplogo')[if $dir is 'down' then 'addClass' else 'removeClass']('visible')
 
   # Profile page language
-  $(".lang-btn-en").click ->
-    $(".profile-outer").attr("lang", "en")
+  en_el = $('h1:lang(en), h2:lang(en), h3:lang(en), p:lang(en), button:lang(en)')
+  ms_el = $('h1:lang(ms), h2:lang(ms), h3:lang(ms), p:lang(ms), button:lang(ms)')
+
+  $('.lang-btn-en').click ->
+    $('.profile-outer').attr('lang', 'en')
   $(".lang-btn-ms").click ->
-    $(".profile-outer").attr("lang", "ms")
+    $('.profile-outer').attr('lang', 'ms')
 
   $("article h1, article h2, article p, blockquote p").widowFix()
 
