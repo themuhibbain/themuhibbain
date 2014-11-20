@@ -4,7 +4,7 @@
 #= require "jquery-timeago"
 #= require "slick-carousel"
 #= require "jquery-waypoints"
-#= require "scrollme"
+# require "scrollme"
 #= require "_widowfix.js"
 
 # String extension: truncate
@@ -61,8 +61,8 @@ $ ->
 
   # ====================================
   # MAIN PAGE
-  # Instagram
 
+  # Instagram
   if $('.instagramfeed').length
     iuid = "470161390"
     icid = "18cab2f355964a2fa6238096fc94483b"
