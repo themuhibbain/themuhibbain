@@ -133,12 +133,22 @@ $ ->
 
   # InstaQuotes
   $('.instaquote-content').slick
-    dots: true
+    dots: false
     infinite: true
     autoplay: true
     autoplaySpeed: 5000
     arrows: false
+    # speed: 1000
+
+  # Promos
+  $('.themuhibbain-content').slick
+    dots: true
+    infinite: true
+    autoplay: true
+    autoplaySpeed: 10000
+    arrows: false
     speed: 1000
+    # adaptiveHeight: true
 
 
   # ====================================

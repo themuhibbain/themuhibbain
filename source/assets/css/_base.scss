@@ -8,30 +8,30 @@
 @import "normalize";
 
 // Bourbon stuffs
-@import "bourbon";
+@import "bourbon/bourbon";
 
 // Neat Settings
 @import "neat-settings";
 
 // Neat
-@import "neat";
+@import "neat/neat";
 
 // Bitters Variables
 @import "bitters-variables";
 
 // Extends
-@import "bitters/app/assets/stylesheets/extends/button";
-@import "bitters/app/assets/stylesheets/extends/clearfix";
-@import "bitters/app/assets/stylesheets/extends/errors";
-@import "bitters/app/assets/stylesheets/extends/flashes";
-@import "bitters/app/assets/stylesheets/extends/hide-text";
+@import "base/extends/button";
+@import "base/extends/clearfix";
+@import "base/extends/errors";
+@import "base/extends/flashes";
+@import "base/extends/hide-text";
 
 // Typography and Elements
-@import "bitters/app/assets/stylesheets/typography";
-// @import "bitters/app/assets/stylesheets/forms";
-// @import "bitters/app/assets/stylesheets/tables";
-@import "bitters/app/assets/stylesheets/lists";
-@import "bitters/app/assets/stylesheets/buttons";
+@import "base/typography";
+// @import "base/forms";
+// @import "base/tables";
+@import "base/lists";
+@import "base/buttons";
 
 // Refills
 // @import "refills/source/stylesheets/refills/textures";
