@@ -1,24 +1,24 @@
-#ruby=ruby-2.1.5
+#ruby=ruby-2.2.3
 #ruby-gemset=middleman
 
 source 'https://rubygems.org'
 
 # Server
-gem 'unicorn', '~> 4.8.3'
+gem 'unicorn'
 
 # Middleman Gems
-gem 'middleman', '~> 3.3.7'
-gem 'middleman-smusher', '~> 3.0.0'
-gem 'middleman-livereload', '~> 3.4.2'
-gem 'middleman-imageoptim', '~> 0.1.4'
-gem 'middleman-sprockets', '~> 3.4.1'
-gem 'middleman-autoprefixer', '~> 2.3.0'
-gem 'middleman-minify-html', '~> 3.4.0'
+gem 'middleman'
+gem 'middleman-smusher'
+gem 'middleman-livereload'
+gem 'middleman-imageoptim'
+gem 'middleman-sprockets'
+gem 'middleman-autoprefixer'
+gem 'middleman-minify-html'
 
 # Precompilers
-gem 'coffee-script', '~> 2.3.0'
-gem 'compass', '~> 1.0.1'
-gem 'sass', '~> 3.4.9'
+gem 'coffee-script'
+gem 'compass'
+gem 'sass'
 
 # image
 gem "fastimage"

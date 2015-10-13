@@ -36,6 +36,41 @@ $.nowAndResize = (func) ->
   $(window).resize($.debounce(func, 250))
   func()
 
+nFormatter = (num, digits) ->
+  si = [
+    {
+      value: 1e18
+      symbol: 'E'
+    }
+    {
+      value: 1e15
+      symbol: 'P'
+    }
+    {
+      value: 1e12
+      symbol: 'T'
+    }
+    {
+      value: 1e9
+      symbol: 'G'
+    }
+    {
+      value: 1e6
+      symbol: 'M'
+    }
+    {
+      value: 1e3
+      symbol: 'k'
+    }
+  ]
+  i = undefined
+  i = 0
+  while i < si.length
+    if num >= si[i].value
+      return (num / si[i].value).toFixed(digits).replace(/\.?0+$/, '') + si[i].symbol
+    i++
+  num
+
 $.timeago.settings.strings =
   prefixAgo: null
   prefixFromNow: null
@@ -64,21 +99,11 @@ $ ->
 
   # Instagram
   if $('.instagramfeed').length
-    iuid = "470161390"
-    icid = "18cab2f355964a2fa6238096fc94483b"
-    iact = "470161390.5b9e1e6.9db999fd40e54c4b8966bfb5f7c2b105"
-    $.ajax
-      dataType: "jsonp"
-      url: "https://api.instagram.com/v1/users/470161390/media/recent"
-      data:
-        client_id: icid
-        count: 6
-
-      error: (response) ->
-
-      success: (response) ->
+    $.getJSON 'http://wms-api.herokuapp.com/tm/instagram/feed?callback=?', (response) ->
         html = []
         $.each response.data, (i, data) ->
+          return if i > 5
+
           caption = data.caption.text.replace(/\s+/g, " ").replace(/THE MUHIBBAIN - Update\./g, "").trim()
           # caption = caption.replace(/[@]+[A-Za-z0-9-_]+/g, "") # remove username
           # caption = caption.replace(/[#]+[A-Za-z0-9-_]+/g, "") # remove hashtag
@@ -102,16 +127,20 @@ $ ->
 
 
   if $(".facebook-count").length
-    $.getJSON "https://graph.facebook.com/279680398756012?callback=?", (data) ->
-      $(".facebook-count").html "#{data.likes} <em>likes</em>"
+    $.getJSON "http://wms-api.herokuapp.com/tm/facebook?callback=?", (data) ->
+      $(".facebook-count").html "#{nFormatter(data.likes, 1)}&nbsp;<em>likes</em>"
 
   if $(".instagram-count").length
-    $.getJSON "https://api.instagram.com/v1/users/#{iuid}/?access_token=#{iact}&callback=?", (data) ->
-      $(".instagram-count").html "#{data.data.counts.followed_by} <em>followers</em>"
+    $.getJSON "http://wms-api.herokuapp.com/tm/instagram?callback=?", (data) ->
+      $(".instagram-count").html "#{nFormatter(data.data.counts.followed_by, 1)}&nbsp;<em>followers</em>"
+
+  if $(".twitter-count").length
+    $.getJSON "http://wms-api.herokuapp.com/tm/twitter?callback=?", (data) ->
+      $(".twitter-count").html "#{nFormatter(data.followers_count, 1)}&nbsp;<em>followers</em>"
 
   if $(".youtube-count").length
-    $.getJSON "http://gdata.youtube.com/feeds/api/users/TheMuhibbains?alt=json&callback=?", (data) ->
-      $(".youtube-count").html "#{data.entry.yt$statistics.subscriberCount} <em>subscribers</em>"
+    $.getJSON "http://wms-api.herokuapp.com/tm/youtube?callback=?", (data) ->
+      $(".youtube-count").html "#{nFormatter(data.items[0].statistics.subscriberCount, 1)}&nbsp;<em>subscribers</em>"
 
   # $.ajax
   #   type: "GET"
