@@ -55,10 +55,14 @@ hr {
   .hero {
     position: relative;
     background: #fff url(../img/themuhibbain-bw-1280.jpg) no-repeat center center;
-    background-size: cover;
+    background-size: contain;
     padding: 14em 2em 6em;
     text-align: center;
     color: #fff;
+
+    @media screen and (max-width: 640px) {
+      background-size: cover;
+    }
 
     a {
       color: #fff;
@@ -192,7 +196,7 @@ hr {
       }
 
       .hero-likes {
-        margin-top: 1.5em;
+        margin-top: 4.5em;
         text-align: center;
 
         a {
